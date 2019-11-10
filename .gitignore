@@ -1,0 +1,6 @@
+_book
+*.pdf
+*.mobi
+*.epub
+node_modules
+output

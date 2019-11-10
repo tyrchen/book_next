@@ -1,0 +1,25 @@
+{
+  "title": "天叔奇谈",
+  "language": "zh-CN",
+  "plugins": ["mathjax", "copy-code-button", "hints"],
+  "pdf": {
+    "fontSize": 16
+  },
+  "pluginsConfig": {
+    "mathjax": {
+      "forceSVG": true
+    },
+    "sharing": {
+      "facebook": true,
+      "twitter": true,
+      "weibo": true,
+      "all": ["facebook", "twitter", "weibo"]
+    },
+    "hints": {
+      "info": "fa fa-info-circle",
+      "tip": "fa fa-mortar-board",
+      "danger": "fa fa-exclamation-cicle",
+      "working": "fa fa-wrench"
+    }
+  }
+}
