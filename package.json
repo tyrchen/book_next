@@ -1,0 +1,22 @@
+{
+  "name": "book_next",
+  "version": "1.0.0",
+  "description": "公众号文章，按照《天叔奇谈》的组织方式，每周出一个版本。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyrchen/book_next.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyrchen/book_next/issues"
+  },
+  "homepage": "https://github.com/tyrchen/book_next#readme",
+  "dependencies": {
+    "yargs": "^14.2.0"
+  }
+}

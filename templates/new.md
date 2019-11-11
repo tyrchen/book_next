@@ -1,18 +1,16 @@
 ---
 title:
-cover: '/2019/w/assets/.jpg'
+cover: 'assets/.jpg'
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[CO,CE]{This is fancy}
+  \fancyfoot[CO,CE]{So is this}
+  \fancyfoot[LE,RO]{\thepage}
 author:
   - 天叔
 keywords: []
 ---
-
-## 研究内容
-
-## 备课素材
-
-## 课堂回顾
-
-## 心得体会
 
 ## 贤者时刻
 
