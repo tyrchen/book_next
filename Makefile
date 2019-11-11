@@ -8,9 +8,9 @@ SRC=src
 RES=resources
 SRC_DIRS=$(basename $(shell find src -maxdepth 1 -mindepth 1 -type d))
 RES_DIRS=$(basename $(shell find resources -maxdepth 1 -mindepth 1 -type d))
-DOCS=$(shell find src -name "*.md")
+DOCS=$(shell find src -name "*.md" | sort)
 RDOCS=$(DOCS:$(SRC)/%.md=$(OUTPUT)/%.md)
-RES_DOCS=$(shell find resources -name "*.md")
+RES_DOCS=$(shell find resources -name "*.md" | sort)
 OUTPUT_DIRS=$(SRC_DIRS:$(SRC)/%=$(OUTPUT)/%) $(RES_DIRS:$(RES)/%=$(OUTPUT)/%)
 HTMLS=$(RDOCS:%.md=%.html)
 RESOURCES=$(RES_DOCS:$(RES)/%.md=$(OUTPUT)/%.html)
@@ -78,22 +78,21 @@ run:
 	@http-server $(OUTPUT) -p 8000 -c-1
 
 $(BOOK_HTML):$(RDOCS)
-	@echo $(RDOCS)
-	$(PANDOC) $(RDOCS) -o $(BOOK_HTML)
+	@$(PANDOC) $(RDOCS) -o $(BOOK_HTML)
 
 $(DIRECTORIES):$(OUTPUT)/%:$(SRC)
 
 $(RDOCS):$(OUTPUT)/%.md:$(SRC)/%.md
-		@echo "Creating revised doc $@ with file $<."
-		@$(TRANSFORM) -i $< -o $@
+	@echo "Creating revised doc $@ with file $<."
+	@$(TRANSFORM) -i $< -o $@
 
 $(HTMLS):%.html:%.md
-		@echo "Creating doc $@ with file $<."
-		-@$(PANDOC) $< -o $@
+	@echo "Creating doc $@ with file $<."
+	-@$(PANDOC) $< -o $@
 
 $(RESOURCES):$(OUTPUT)/%.html:$(RES)/%.md
-		@echo "Creating doc $@ with file $<."
-		-@$(PANDOC) $< -o $@
+	@echo "Creating doc $@ with file $<."
+	-@$(PANDOC) $< -o $@
 
 
 include .makefiles/*.mk
