@@ -1,7 +1,8 @@
 ---
-title: Wireguard：简约之美
+title: 'Wireguard：简约之美'
 cover: 'assets/wg.jpg'
-author: [程序君]
+author:
+  - 程序君
 keywords: [tech, security, wireguard]
 ---
 
@@ -13,15 +14,15 @@ keywords: [tech, security, wireguard]
 
 在具体讲 WG 之前， 我们先来把 VPN 的通用需求抽象一下：
 
-* 安全性（security）：保证两个私有网络间的数据可以在不安全的网络（比如互联网）上安全地传输
+- 安全性（security）：保证两个私有网络间的数据可以在不安全的网络（比如互联网）上安全地传输
 
-* 真实性（authenticity）：访问者是合法的用户，访问者访问的是正确的网络
+- 真实性（authenticity）：访问者是合法的用户，访问者访问的是正确的网络
 
-* 高效性（efficiency）：开启 VPN 并不会让访问网络明显变慢，且建立隧道的速度要快
+- 高效性（efficiency）：开启 VPN 并不会让访问网络明显变慢，且建立隧道的速度要快
 
-* 隐秘性（stealthiness）：第三方并不能轻易嗅探到网关的存在
+- 隐秘性（stealthiness）：第三方并不能轻易嗅探到网关的存在
 
-* 易用性（accessibility）：很容易配置，很容易开启和关闭
+- 易用性（accessibility）：很容易配置，很容易开启和关闭
 
 在不安全的网络上安全地传输数据这件事，我们必须感谢 Martin E Hellman，Bailey W Diffie 和 Ralph C. Merkle。他们的专利 [Cryptographic apparatus and method](https://patents.google.com/patent/US4200770) 提出了后来广为流传的 DH 算法，用于交换密钥。
 
@@ -57,7 +58,7 @@ WG 仅有 4k 的内核代码实现！精巧得简直不能再精巧！虽然这�
 
 要知道，Linus 平日来评论代码的画风是这样的（Mauro 是一个 Kernel maintainer）：
 
-> "It's a bug alright -- in the kernel. How long have you been a maintainer? And you *still* haven't learnt the first rule of kernel maintenance?
+> "It's a bug alright -- in the kernel. How long have you been a maintainer? And you _still_ haven't learnt the first rule of kernel maintenance?
 
 > "Shut up, Mauro. And I don't _ever_ want to hear that kind of obvious garbage and idiocy from a kernel maintainer again. Seriously.
 
@@ -71,11 +72,11 @@ WG 仅有 4k 的内核代码实现！精巧得简直不能再精巧！虽然这�
 
 WG 先定义了一个很重要的概念 —— WireGuard Interface（以下简称 wgi）。为什么要有 wgi？为什么现有的 tunnel 接口不适合？一个 wgi 是这么一个特殊的接口：
 
-* 有一个自己的私钥（curve25519）
+- 有一个自己的私钥（curve25519）
 
-* 有一个用于监听数据的 UDP 端口
+- 有一个用于监听数据的 UDP 端口
 
-* 有一组 peer（peer 是另一个重要的概念），每个 peer 通过该 peer 的公钥确认身份
+- 有一组 peer（peer 是另一个重要的概念），每个 peer 通过该 peer 的公钥确认身份
 
 通过定义这样一个新的接口，wgi 把它和一般的 tunnel 接口区分开。有了这样一个接口的定义，其它数据结构的挂载，以及数据的收发都很清晰明了了。
 
@@ -122,19 +123,19 @@ WG 的简洁设计还体现在加密隧道的协商上。它使用了 Noise Prot
 
 WG 的握手报文中会携带：
 
-* unencrypted_ephemeral：发送方为这次握手临时生成的公钥（未加密，用于 ECDH）
+- unencrypted_ephemeral：发送方为这次握手临时生成的公钥（未加密，用于 ECDH）
 
-* encrypted_static：用对端公钥和临时生成的私钥 ECDH 出的临时密钥 key1 对称加密对方的公钥
+- encrypted_static：用对端公钥和临时生成的私钥 ECDH 出的临时密钥 key1 对称加密对方的公钥
 
-* encrypted_timestamp：用对端公钥和自己的私钥 ECDH 出 key2，key2 混淆进 key1，来加密当前的时间戳
+- encrypted_timestamp：用对端公钥和自己的私钥 ECDH 出 key2，key2 混淆进 key1，来加密当前的时间戳
 
-* mac1：对端公钥加上整个报文内容后的哈希
+- mac1：对端公钥加上整个报文内容后的哈希
 
 接收方先校验 mac1（简单的身份验证 - 一般的黑客在这一步就跪了），如果不对，直接丢弃；之后验证 encrypted_static（确认眼神 - 除非有私钥，否则黑客在这一步也跪了），验证 encrypted_timestamp（防止重放，所以重放攻击也跪了）。当接收方校验一切 OK 后，它可以生成自己的临时密钥对。此时，接收方因为有了对端的临时公钥，已经可以计算出此次协商后加密数据要用的密钥。但它还需要发送一个握手的回复报文来把自己的临时公钥给发送方以便于发送方可以算出同样的密钥：
 
-* unencrypted_ephemeral：接收方为这次握手临时生成的公钥（未加密，用于 ECDH）
+- unencrypted_ephemeral：接收方为这次握手临时生成的公钥（未加密，用于 ECDH）
 
-* mac1：对端公钥加上整个报文内容后的哈希
+- mac1：对端公钥加上整个报文内容后的哈希
 
 这样两端都有对方临时生成的公钥，加上自己临时生成的私钥，就可以 ECDH + HKDF（一种把 DH 结果转成对称加密密钥的方法）得到这次握手的两个方向的对称加密的密钥。
 
@@ -146,23 +147,23 @@ WG 的握手报文中会携带：
 
 有了密钥之后，用户的数据报文就很好处理了。处理的逻辑非常简单清晰，以至于寥寥数行就可以涵盖：
 
-* 发送：
+- 发送：
 
-* 用户态：应用程序发送目标地址是 VPN 对端网络的数据报文
+- 用户态：应用程序发送目标地址是 VPN 对端网络的数据报文
 
-* 内核：内核通过路由表发现应该由 wg0 接口发出，所以交给 WG 处理
+- 内核：内核通过路由表发现应该由 wg0 接口发出，所以交给 WG 处理
 
-* WG：通过目标地址，在接口的配置中可以反查出要发往哪个 peer，然后用之前和该 peer 协商好的密钥（如果没有协商或者密钥过期，则重新协商）加密报文，并将报文封装在目标地址和目标端口是 peer 的 endpoint 的 UDP 报文中（报文中包含 key_index）
+- WG：通过目标地址，在接口的配置中可以反查出要发往哪个 peer，然后用之前和该 peer 协商好的密钥（如果没有协商或者密钥过期，则重新协商）加密报文，并将报文封装在目标地址和目标端口是 peer 的 endpoint 的 UDP 报文中（报文中包含 key_index）
 
-* 接收：
+- 接收：
 
-* 内核：数据报文的 UDP 端口是 WG 在监听，将其送给 WG 处理（WG 的 recv 得到该报文）
+- 内核：数据报文的 UDP 端口是 WG 在监听，将其送给 WG 处理（WG 的 recv 得到该报文）
 
-* WG：从报文的 key_index 找到哈希表中对应的密钥，解密（这里不是直接解密，而是放入一个解密队列中，这是设计上网络系统的一个小诀窍）
+- WG：从报文的 key_index 找到哈希表中对应的密钥，解密（这里不是直接解密，而是放入一个解密队列中，这是设计上网络系统的一个小诀窍）
 
-* WG：查看解密出来的原始报文是否在 peer 允许的 IP 列表中，如果是，就把原始报文交给内核处理。注意，这里这个报文属于哪个 peer，也是从 key_index 中获得
+- WG：查看解密出来的原始报文是否在 peer 允许的 IP 列表中，如果是，就把原始报文交给内核处理。注意，这里这个报文属于哪个 peer，也是从 key_index 中获得
 
-* 内核：根据原始报文的目标地址查路由表将报文送出
+- 内核：根据原始报文的目标地址查路由表将报文送出
 
 ![](assets/wg_routing.jpg)
 

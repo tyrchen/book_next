@@ -78,16 +78,16 @@ run:
 	@http-server $(OUTPUT) -p 8000 -c-1
 
 $(BOOK_HTML):$(RDOCS)
-	@$(PANDOC) $(RDOCS) -o $(BOOK_HTML).tmp
-	@sed 's/src="\//src="/g' $(BOOK_HTML).tmp > $(BOOK_HTML)
+	@echo $(RDOCS)
+	$(PANDOC) $(RDOCS) -o $(BOOK_HTML)
 
 $(DIRECTORIES):$(OUTPUT)/%:$(SRC)
 
 $(RDOCS):$(OUTPUT)/%.md:$(SRC)/%.md
 		@echo "Creating revised doc $@ with file $<."
-		-@$(TRANSFORM) -i $< -o $@
+		@$(TRANSFORM) -i $< -o $@
 
-$(HTMLS):$(OUTPUT)/%.html:$(SRC)/%.md
+$(HTMLS):%.html:%.md
 		@echo "Creating doc $@ with file $<."
 		-@$(PANDOC) $< -o $@
 

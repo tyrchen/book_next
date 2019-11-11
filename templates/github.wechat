@@ -460,12 +460,14 @@
       margin: 20px 10px; max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #545454; text-align: justify; line-height: 28px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);
     }
     ol, ul {
-      width: 520px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);
+      max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);
     }
     ol li, ul li {
       margin: 5px; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: justify; line-height: 1.5; box-sizing: border-box !important; word-wrap: break-word !important;
       color: #545454; font-size: 15px;
     }
+    img {width: 100%;}
+
     @media all {
       .page-break	{ display: none; }
     }

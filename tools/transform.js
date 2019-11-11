@@ -5,7 +5,6 @@ const path = require('path');
 const pipes = [replaceImage, addPageBreak];
 
 async function process(src, dst) {
-  console.log(`process ${src}`);
   const content = await fs.readFile(src, 'utf8');
   const result = pipes.reduce((acc, fn) => fn.call(null, acc, { filename: src }), content);
   await fs.writeFile(dst, result);
@@ -13,11 +12,11 @@ async function process(src, dst) {
 
 function replaceImage(content, context) {
   const dir = path.dirname(context.filename).replace('src/', '');
-  return content.replace('assets/', `${dir}/assets/`);
+  return content.replace(/assets\//g, `${dir}/assets/`);
 }
 
 function addPageBreak(content, _context) {
-  return `${content}\\newpage`;
+  return `${content}\n\\newpage\n`;
 }
 
 async function main() {
