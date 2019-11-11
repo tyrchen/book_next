@@ -32,7 +32,7 @@ done
 
 # Define variables.
 owner=tyrchen
-repo=book_tianshu
+repo=book_next
 
 GH_API="https://api.github.com"
 GH_REPO="$GH_API/repos/$owner/$repo"

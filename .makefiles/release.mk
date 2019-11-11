@@ -1,9 +1,9 @@
 RELEASE_VERSION=v$(VERSION)
 GIT_BRANCH=$(strip $(shell git symbolic-ref --short HEAD))
 GIT_VERSION="$(strip $(shell git rev-parse --short HEAD))"
-RELEASE_BODY=[release note](https://github.com/tyrchen/book_tianshu/blob/$(RELEASE_VERSION)/CHANGELOG.md#$(VERSION)-$(shell date +%B-%d-%Y | tr "[:upper:]" "[:lower:]")
+RELEASE_BODY=[release note](https://github.com/tyrchen/book_next/blob/$(RELEASE_VERSION)/CHANGELOG.md#$(VERSION)-$(shell date +%B-%d-%Y | tr "[:upper:]" "[:lower:]")
 RELEASE_DATA='{"tag_name": "$(RELEASE_VERSION)", "name": "$(RELEASE_VERSION)", "target_commitish": "master", "body": "$(RELEASE_BODY))"}'
-RELEASE_URL=https://api.github.com/repos/tyrchen/book_tianshu/releases
+RELEASE_URL=https://api.github.com/repos/tyrchen/book_next/releases
 
 info:
 	@echo $(RELEASE_DATA)
