@@ -1,8 +1,7 @@
 ---
 title: 'Wireguard：简约之美'
 cover: 'assets/wg.jpg'
-author:
-  - 程序君
+author: [程序君]
 keywords: [tech, security, wireguard]
 ---
 

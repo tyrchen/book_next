@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tyrchen/book_next#readme",
   "dependencies": {
+    "front-matter": "^3.0.2",
     "yargs": "^14.2.0"
   }
 }
