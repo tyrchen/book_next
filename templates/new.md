@@ -1,6 +1,6 @@
 ---
 title:
-cover: 'assets/.jpg'
+cover: "assets/.jpg"
 header-includes: |
   \usepackage{fancyhdr}
   \pagestyle{fancy}
@@ -13,5 +13,3 @@ keywords: []
 ---
 
 ## 贤者时刻
-
-\newpage

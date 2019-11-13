@@ -1,5 +1,5 @@
 ---
-title: '序言'
+title: "序言"
 author: [程序君]
 keywords: [intro]
 ---
@@ -19,6 +19,6 @@ keywords: [intro]
 
 ![](cover.jpg)
 
-\newpage
+<div class="page-break" />
 
 # 前言

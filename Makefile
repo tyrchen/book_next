@@ -1,5 +1,7 @@
 PANDOC=pandoc --lua-filter templates/pagebreak.lua -t html5 --mathjax --template=templates/github.wechat --tab-stop 2 --highlight-style pygments --standalone --section-divs
 
+MDOC=mdoc
+
 TRANSFORM=tools/transform.js
 GEN_SUMMARY=tools/gen_summary.js
 
@@ -33,12 +35,11 @@ show:
 
 install:
 	@echo "Install software required for this repo..."
-	@brew install pandoc
-	@mix local.rebar --force
+	@npm install -g chrome-headless-render-pdf
 
 dep:
 	@echo "Install dependencies required for this repo..."
-	@npm install -g chrome-headless-render-pdf
+	@yarn
 
 pre-build: dep
 	@echo "Running scripts before the build..."
@@ -81,7 +82,7 @@ run:
 	@http-server $(OUTPUT) -p 8000 -c-1
 
 $(BOOK_HTML):$(PUB_RDOCS)
-	@$(PANDOC) $(PUB_RDOCS) -o $(BOOK_HTML)
+	@$(MDOC) $(PUB_RDOCS) -o $(BOOK_HTML)
 
 $(DIRECTORIES):$(OUTPUT)/%:$(SRC)
 
@@ -91,11 +92,11 @@ $(RDOCS):$(OUTPUT)/%.md:$(SRC)/%.md
 
 $(HTMLS):$(OUTPUT)/%.html:$(SRC)/%.md
 	@echo "Creating doc $@ with file $<."
-	-@$(PANDOC) $< -o $@
+	-@$(MDOC) $< -o $@
 
 $(RESOURCES):$(OUTPUT)/%.html:$(RES)/%.md
 	@echo "Creating doc $@ with file $<."
-	-@$(PANDOC) $< -o $@
+	-@$(MDOC) $< -o $@
 
 gen-summary: $(PUB_DOCS)
 	@echo "Creating summary page"
