@@ -1,7 +1,4 @@
-PANDOC=pandoc --lua-filter templates/pagebreak.lua -t html5 --mathjax --template=templates/github.wechat --tab-stop 2 --highlight-style pygments --standalone --section-divs
-
 MDOC=mdoc
-
 TRANSFORM=tools/transform.js
 GEN_SUMMARY=tools/gen_summary.js
 

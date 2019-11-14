@@ -9,5 +9,3 @@
 * Callback hell
 
 * Promises and future (future: perfectly sized allocation per task)
-
-

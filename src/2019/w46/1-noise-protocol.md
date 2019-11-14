@@ -11,6 +11,8 @@ Noise Protocol Framework（以下简称 Noise）是一个用于构建安全协�
 
 诸君也许会问：既然有了 TLS，我们为何还需要创建自己的安全协议？
 
+
+
 ```
                               START <----+
                Send ClientHello |        | Recv HelloRetryRequest
