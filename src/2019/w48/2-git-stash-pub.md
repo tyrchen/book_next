@@ -1,3 +1,10 @@
+---
+title: '我们随手做的 git stash，究竟干了什么？'
+cover: 'assets/building.jpg'
+author: [程序君]
+keywords: [tech, git]
+---
+
 # 我们随手做的 git stash，究竟干了什么？
 
 `git stash` 是程序员的至宝。老板 biangbiang 甩来一个 case，说这个要下班之前 hot fix，咋办，stash，切到 release 对应的分支，缝缝补补；产品 kuangkuang 砸来一个需求更新，说这个简单，小哥哥帮帮我先做了，咋办，stash 切一个新的 feature 分支，撸袖子干。如果没有 `git stash`，人生至少要灰暗一半。
