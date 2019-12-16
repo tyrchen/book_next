@@ -31,7 +31,6 @@ application --> noise
 noise --> application
 noise --> ReaderWriter
 ReaderWriter --> noise
-
 ```
 
 Noise 协议原文除去附录，有 41 页之多，这里面有大量的概念和协议细节的描述，在深入细节之前，我们从用户的角度，或者说产品的角度，看看如何使用一个 Noise 协议做出来的系统。
@@ -103,60 +102,3 @@ WireGuard 算是目前最成功的公开的应用。因为 Noise 协议主要应
 此外，Noise 协议还可以用于加密文件 —— 只要我有你的公钥，我可以使用单向握手（7.4）加密某个文件（附带握手时发送的消息），然后传输到某个不安全的位置（比如网盘，FTP，IPFS，甚至区块链中），该文件只有拥有私钥的人才能解密。这种应用很有意思，因为它具备非对称加密的安全性，同时又具备对称加密的加解密速度。
 
 如果你对 noise 协议感兴趣，rust 下的 snow crate（程序君验证过），golang 下的 libdisco（未验证） 和 flynn/noise（已经两年未更新）看上去都不错。尤其是 rust 下的 snow，实现精巧，很容易和其它模块如底层的 tokio/async-std，以及上层的 yamux 结合使用​。snow 在不少开源项目中，尤其是区块链和 IoT 的项目中​得到广泛使用。​
-
-
-
-但它面向的使用场景主要围绕着 client-server 模式 — 客户端通过验证服务端的证书来「信任」服务端，整个加密信道的建立也围绕着证书来完成。当然 TLS 也支持服务器端验证客户端的证书，但客户端证书的发放就牵扯到服务器端提供 CA 的功能，整个体系
-
-```
-                              START <----+
-               Send ClientHello |        | Recv HelloRetryRequest
-          [K_send = early data] |        |
-                                v        |
-           /                 WAIT_SH ----+
-           |                    | Recv ServerHello
-           |                    | K_recv = handshake
-       Can |                    V
-      send |                 WAIT_EE
-     early |                    | Recv EncryptedExtensions
-      data |           +--------+--------+
-           |     Using |                 | Using certificate
-           |       PSK |                 v
-           |           |            WAIT_CERT_CR
-           |           |        Recv |       | Recv CertificateRequest
-           |           | Certificate |       v
-           |           |             |    WAIT_CERT
-           |           |             |       | Recv Certificate
-           |           |             v       v
-           |           |              WAIT_CV
-           |           |                 | Recv CertificateVerify
-           |           +> WAIT_FINISHED <+
-           |                  | Recv Finished
-           \                  | [Send EndOfEarlyData]
-                              | K_send = handshake
-                              | [Send Certificate [+ CertificateVerify]]
-    Can send                  | Send Finished
-    app data   -->            | K_send = K_recv = application
-    after here                v
-                          CONNECTED
-```
-
-## 参考资料
-
-- [gist - Cryptographic Right Answers](https://gist.github.com/tqbf/be58d2d39690c3b366ad)
-
-- [latacora - Cryptographic Right Answers](https://latacora.singles/2018/04/03/cryptographic-right-answers.html)
-
-## 摘抄
-
-Noise is a fantastic set of protocols for building modern cryptographic applications. Here are a few things to look out for:
-
-- The interactions in the protocol are precisely specified
-
-- The exact security properties of the different interactions are precisely specified, including in-depth concepts like the AKE's KCI properties (AKE: authenticated key exchange, KCI: key compromise impersonation, where post-compromise, an attacker can impersonate anyone to the victim, instead of being able to just impersonate the victim to anyone).
-
-- Several mutually compatible reference implementations.
-
-As great as it is, most applications should still rely on TLS for transport security. Noise is primarily for places where TLS' properties aren't suitable.
-
-Another interesting tidbit that might not be obvious: like TLS, Noise is one protocol with many instantiations. Because it builds on a few simple primitives, these can be swapped out, although Noise defines sane defaults. However, an application built on top of Noise is far more likely to have one fixed ciphersuite set (agility, but not negotiation) -- so it wouldn't be unreasonable to think of Noise as a blueprint for a set of protocols.
