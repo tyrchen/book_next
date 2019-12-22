@@ -2,7 +2,7 @@
 title: 'Wireguard：简约之美'
 cover: 'assets/wg.jpg'
 authors: [程序君]
-keywords: [tech, security, wireguard]
+keywords: [技术, 安全, wireguard]
 ---
 
 # Wireguard：简约之美
@@ -45,15 +45,15 @@ keywords: [tech, security, wireguard]
 WG 仅有 4k 的内核代码实现！精巧得简直不能再精巧！虽然这么说有些不敬，但对比下来，仿佛 OpenVPN 或者 StrongSwan 是按行收费的印度外包公司的产品，而 WG 是真正的程序员的杰作！Linus 本尊对 WG 赞不绝口，他在 18 年 8 月 2 日的 [一封邮件](https://lists.openwall.net/netdev/2018/08/02/124) 这么写到：
 
 > Btw, on an unrelated issue: I see that Jason actually made the pull request to have wireguard included in the kernel.
-> 
+>
 > Can I just once again state my love for it and hope it gets merged soon? Maybe the code isn't perfect, but I've skimmed it, and compared to the horrors that are OpenVPN and IPSec, it's a work of art.
-> 
+>
 > Linus
 
 要知道，Linus 平日来评论代码的画风是这样的（Mauro 是一个 Kernel maintainer）：
 
 > "It's a bug alright -- in the kernel. How long have you been a maintainer? And you _still_ haven't learnt the first rule of kernel maintenance?
-> 
+>
 > "Shut up, Mauro. And I don't _ever_ want to hear that kind of obvious garbage and idiocy from a kernel maintainer again. Seriously.
 
 所以能让 Linus "state my love" 比登天还难。所以让我们怀着朝圣的心情，跪着学习 WG 是怎么做到的 —— 这样做产品写代码的思路值得我们潜心研习！

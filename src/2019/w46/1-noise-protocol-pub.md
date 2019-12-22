@@ -2,7 +2,7 @@
 title: 'Noise 框架：构建安全协议的蓝图'
 cover: 'assets/noise.jpg'
 author: [程序君]
-keywords: [tech, security, noise protocol]
+keywords: [技术, 安全, noise]
 ---
 
 # Noise 框架：构建安全协议的蓝图

@@ -2,7 +2,7 @@
 title: '我们随手做的 git stash，究竟干了什么？'
 cover: 'assets/building.jpg'
 author: [程序君]
-keywords: [tech, git]
+keywords: [技术, git]
 ---
 
 # 我们随手做的 git stash，究竟干了什么？

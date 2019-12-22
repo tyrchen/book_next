@@ -16,7 +16,7 @@ keywords: [技术, 沙箱]
 
 wikipedia 是这样定义沙箱的：
 
-> In computer security, a "sandbox" is a security mechanism for separating running programs, usually in an effort to mitigate system failures or software vulnerabilities from spreading. It is often used to execute untested or untrusted programs or code, possibly from unverified or untrusted third parties, suppliers, users or websites, without risking harm to the host machine or operating system.
+> In computer 安全, a "sandbox" is a security mechanism for separating running programs, usually in an effort to mitigate system failures or software vulnerabilities from spreading. It is often used to execute untested or untrusted programs or code, possibly from unverified or untrusted third parties, suppliers, users or websites, without risking harm to the host machine or operating system.
 
 
 其实更广义的沙箱在计算机系统里无处不在。OS 把裸机和应用软件隔离开，让应用软件认为自己独占整个系统；虚拟内存技术把物理内存和虚拟内存隔离，让应用软件无法轻易染指别人的内存；VMM/container 把 host OS 和 guest OS/application 隔离，让它们运行在安全的独享的环境下。

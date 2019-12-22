@@ -2,7 +2,7 @@
 title: '10 分钟重新认识 git'
 cover: 'assets/git.jpg'
 author: [程序君]
-keywords: [tech, git]
+keywords: [技术, git]
 ---
 
 # 10 分钟重新认识 git
