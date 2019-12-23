@@ -136,4 +136,5 @@ title: '目录'
 - [10 分钟重新认识 git](2019/w48/1-git-pub.html)
 - [我们随手做的 git stash，究竟干了什么？](2019/w48/2-git-stash-pub.html)
 - [《阿基拉和拼字比赛》观感](2019/w51/1-akeelah-pub.html)
+- [如何安全地保存密码？](2019/w51/2-cellar-pub.html)
 
