@@ -97,6 +97,7 @@ title: '目录'
 - [僧敲月下门](2016/w38/2-hello-name-pub.html)
 - [0MQ 的世界](2016/w40/1-zero-mq-pub.html)
 - [宝贝出生记](2016/w41/1-labor-delivery-pub.html)
+- [0MQ 的世界](2016/w42/1-zeromq-pub.html)
 - [GraphQL 的利与弊](2016/w45/1-graphql-pub.html)
 - [技术债：the good, the bad, and the tao](2016/w46/1-tech-debt-pub.html)
 - [程序员字典：「牛逼」](2017/w02/1-awesome-pub.html)
