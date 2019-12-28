@@ -75,13 +75,13 @@ keywords: [技术, 成长]
 
 ![](assets/leanstartup.png)
 
-当我们把脑海中的蓝图构建出来之后，接下来最重要的一步就是测量（measure）。开尔文说：
+当我们把脑海中的蓝图构建出来之后，接下来最重要的一步就是测量（measure）。
 
-![](assets/kelvin-measure.jpg)
+<image src="assets/kelvin-measure.jpg" style="width: 50%; float: left; margin: 0 20px 20px 20px" />
 
-所以数据观的第一步是知道测量什么。想要知道测量什么，需要知道某个产品最重要的 KPI 是什么。以我肤浅的认知举个例子（自己公司的例子不好举）。比如 facebook ads，其最核心的 KPI 应该是 impression（广告的展示），因为其收益是基于 impression 的。那 impression 就是最基础的测量数据。一个广告的 impression 是否达成，不能 facebook 一个人说了算，需要同时往第三方机构发送用于追踪的 pixel。所以 pixel 也是一个关键的测量数据。从 impression 往回推，是 AO（ad opportunity，广告机会）。facebook 在每个 timeline 里面会计算出各种各样的 AO：假设 每个人的 timeline 里每隔 8-12 个 feed 就出现一个 AO，但当前 facebook 的广告库存里只有定向发送给30-40岁的受过高等教育的高收入男性的广告，所以一个刚毕业的学生的 timeline 里是不会有广告的，这时候这个 AO 就是 Empty AO（空置的广告机会），它不会产生收入。空置的广告机会也可以用来插入产品自己的广告（in-house ads），帮助宣传自己的产品，或者促进自己产品的增长，比如下面我截的几个图，第一个就是 in-house ads impression，后两个是有收入的 impression：
+开尔文说：「不能测量，便无法改进」。所以数据观的第一步是知道测量什么。想要知道测量什么，需要知道某个产品最重要的 KPI 是什么。以我肤浅的认知举个例子（自己公司的例子不好举）。比如 facebook ads，其最核心的 KPI 应该是 impression（广告的展示），因为其收益是基于 impression 的。那 impression 就是最基础的测量数据。一个广告的 impression 是否达成，不能 facebook 一个人说了算，需要同时往第三方机构发送用于追踪的 pixel。所以 pixel 也是一个关键的测量数据。从 impression 往回推，是 AO（ad opportunity，广告机会）。facebook 在每个 timeline 里面会计算出各种各样的 AO：假设 每个人的 timeline 里每隔 8-12 个 feed 就出现一个 AO，但当前 facebook 的广告库存里只有定向发送给30-40岁的受过高等教育的高收入男性的广告，所以一个刚毕业的学生的 timeline 里是不会有广告的，这时候这个 AO 就是 Empty AO（空置的广告机会），它不会产生收入。空置的广告机会也可以用来插入产品自己的广告（in-house ads），帮助宣传自己的产品，或者促进自己产品的增长，比如下面我截的几个图，第一个就是 in-house ads impression，后两个是有收入的 impression：
 
-![](assets/fb_ads.jpg)
+<image src="assets/fb_ads.jpg" style="width: 20%; float: left; margin: 0 20px 20px 20px" />
 
 这样看，除了 impression，pixel 外，AO，Empty AO，In-house ads，也都是要测量的对象。那么，这些 AO 从何而来？再往上推就是 DAU/MAU。因为按照 facebook 的商业模式，更多的日活/月活会带来更多的 AO，更多的 AO 带来更多的 impression。
 
@@ -92,5 +92,3 @@ keywords: [技术, 成长]
 测量只是第一步，接下来是分析和解读数据。分析和解读数据的能力是工程师的数据观的重要组成部分。同样的数据，在不同人眼中，着重点不同，得出的结论可能大相径庭。这个不展开讨论。
 
 分析和解读之后学到的东西需要进一步 build 回产品中，由此，技术，产品，以及数据，形成了一个有机的整体。
-
-嗯，就写这么多，碎觉去。

@@ -21,8 +21,6 @@ keywords: [技术, 安全, wireguard]
 
 在不安全的网络上安全地传输数据这件事，我们必须感谢 Martin E Hellman，Bailey W Diffie 和 Ralph C. Merkle。他们的专利 [Cryptographic apparatus and method](https://patents.google.com/patent/US4200770) 提出了后来广为流传的 DH 算法，用于交换密钥。
 
-![](assets/dh_patent.jpg)
-
 这个算法本身使用了同余和乘法交换律的性质，过程很简单，大家感兴趣可以看 wikipedia。WG 使用的 ECDH 则是 DH 算法的变种，使用了椭圆曲线来增强性能和安全性：
 
 ![](assets/ecdh.png)

@@ -131,10 +131,6 @@ plantuml，正如其名称，支持几乎所有的uml图，常画uml的童鞋有
 
 ![](assets/plantuml_2.jpg)
 
-或者activity图：
-
-![](assets/plantuml_3.jpg)
-
 更美妙的是，plantuml还集成了ditaa和graphviz，让你可以用各自的语法在plantuml下绘图，大有一统江湖之势。
 
 和ditaa类似，plantuml也是一个sourceforge的项目，请访问：http://plantuml.sourceforge.net/。
@@ -311,10 +307,6 @@ end
 - (2)(4) 两种不同的循环方式，像不像写代码？
 
 几乎一下子就能看懂了，是不？
-
-生成的图表如下：
-
-![](assets/plantuml_activity2.jpg)
 
 继续进阶：
 

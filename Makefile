@@ -54,6 +54,7 @@ pre-build: dep
 
 post-build:
 	@echo "Running scripts after the build is done..."
+	@rm -f $(BOOK_HTML)
 	@make pdf
 	@make epub
 

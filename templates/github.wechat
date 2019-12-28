@@ -445,15 +445,21 @@
     }
     h2 {
       height: 57px;
-      line-height: 62px;
+      line-height: 57px;
       color: rgb(0, 179, 138);
       border-bottom: 2px solid rgb(0, 179, 139);
       margin-top: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       display: inline-block;
     }
     h3 {
-      display: inline-block; height: 45px; line-height: 45px; color: rgb(8, 156, 187);padding-left: 30px; margin-top: 38px; margin-bottom: 10px;
+      height: 40px;
+      line-height: 40px;
+      color: rgb(8, 156, 187);
+      border-bottom: 2px solid rgb(8, 156, 187);
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
     }
 
     p {
