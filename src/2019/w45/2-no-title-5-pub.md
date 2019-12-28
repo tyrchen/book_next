@@ -1,11 +1,11 @@
 ---
-title: '长日无痕(5): 天叔奇谈'
+title: '长日无痕（五）'
 cover: 'assets/life.jpg'
 author: [程序君]
-keywords: [life, study]
+keywords: [成长, 长日无痕]
 ---
 
-# 长日无痕(5): 天叔奇谈
+# 长日无痕（五）
 
 （一）
 
@@ -22,7 +22,7 @@ keywords: [life, study]
 于是我在教室 —— 小宝平日里白天上课的教室里，用她平日里学习用的纸和笔，庄重地写下了如下计划：
 
 > 每晚 8 点 30 - 9 点 10 分：
-> 
+>
 > - 周一：历史故事（和小宝一起探索二十四史中的有趣故事，加深小宝对中华文化认同，以及她对汉字和语文的喜爱）
 > - 周二：数学（我们一起探索数字的奥妙，培养她的数感）
 > - 周三：Scratch（小宝对编程非常喜爱，我们一起做些有趣的开发，来培养她的逻辑能力，以及把复杂问题拆分的能力）
@@ -74,7 +74,7 @@ keywords: [life, study]
 ## 贤者时刻
 
 > It is not worth an intelligent man's time to be in the majority. By definition, there are already enough people to do that.
-> 
+>
 > - G. H. Hardy
 
 有天周六，小宝上完溜冰课，妈妈带她来我公司休息，准备参加半小时之后的在我公司附近的舞蹈课。在我办公室的白板上，小宝画了一个数轴：

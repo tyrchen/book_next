@@ -115,7 +115,7 @@ at least once / at most once 并没有解决不确定性的问题，所以我们
 
 分布式系统中，绕不过去的一个话题是 CAP 理论：即对于 Consistency，Availability 和 Partition tolerance，你只能保证其中两个，而牺牲第三个。
 
-![](/assets/cap1.jpg)
+![](assets/cap1.jpg)
 
 我来简单解释一下：
 

@@ -1,7 +1,7 @@
 ---
 title: 'Joe Armstrong 面对面'
 authors: [程序君]
-keywords: [领导力, 世界观]
+keywords: [技术, erlang]
 ---
 
 # Joe Armstrong 面对面

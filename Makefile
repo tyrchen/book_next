@@ -1,6 +1,7 @@
 MDOC=mdoc
 TRANSFORM=tools/transform.js
 GEN_SUMMARY=tools/gen_summary.js
+FILTER_KEYWORD=tools/filter_keyword.js
 
 VERSION=$(strip $(shell cat version))
 OUTPUT=output
@@ -19,7 +20,16 @@ RESOURCES=$(RES_DOCS:$(RES)/%.md=$(OUTPUT)/%.html)
 BOOK_HTML=$(OUTPUT)/book.html
 RELEASE_FILENAME=tchen
 
-all: build post-build
+all: build
+	@KEYWORD=技术 make post-build
+	@mv output/tchen.pdf output/程序人生-技术篇.pdf
+	@mv output/tchen.epub output/程序人生-技术篇.epub
+	@KEYWORD=成长 make post-build
+	@mv output/tchen.pdf output/程序人生-成长篇.pdf
+	@mv output/tchen.epub output/程序人生-成长篇.epub
+	@KEYWORD=杂谈 make post-build
+	@mv output/tchen.pdf output/程序人生-杂谈篇.pdf
+	@mv output/tchen.epub output/程序人生-杂谈篇.epub
 
 init: install dep
 	@echo "Initializing the repo..."
@@ -79,7 +89,9 @@ run:
 	@http-server $(OUTPUT) -p 8000 -c-1
 
 $(BOOK_HTML):$(PUB_RDOCS)
-	@$(MDOC) $(PUB_RDOCS) -o $(BOOK_HTML)
+	@$(eval FILTERED_DOCS := $(shell $(FILTER_KEYWORD) -f "$(KEYWORD)" $(PUB_DOCS)))
+	@$(GEN_SUMMARY) -o src/1-summary-pub.md $(FILTERED_DOCS) --toc
+	@$(MDOC) src/0-intro-pub.md src/1-summary-pub.md $(FILTERED_DOCS) -o $(BOOK_HTML)
 
 $(DIRECTORIES):$(OUTPUT)/%:$(SRC)
 
@@ -97,7 +109,10 @@ $(RESOURCES):$(OUTPUT)/%.html:$(RES)/%.md
 
 gen-summary: $(PUB_DOCS)
 	@echo "Creating summary page"
-	@$(GEN_SUMMARY) -o src/1-summary-pub.md $(PUB_DOCS)
+	@$(GEN_SUMMARY) -o src/1-summary.md $(PUB_DOCS)
+
+filter: $(PUB_DOCS)
+	@$(FILTER_KEYWORD) -f "技术" $(PUB_DOCS)
 
 include .makefiles/*.mk
 

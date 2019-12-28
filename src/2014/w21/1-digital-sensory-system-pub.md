@@ -6,12 +6,12 @@ keywords: [技术, 反馈系统]
 
 # 触觉和反馈系统
 
-今天去斯坦福的教室里听了个"EngX: The Digital Sensory System"的讲座，算是了却了自己一直的一个心愿：坐在斯坦福的教室里像模像样地听一堂课。建议大家如果有机会来硅谷出差，可以先看看event.stanford.edu，有没有中意的seminar。
+今天去斯坦福的教室里听了个"EngX: The Digital Sensory System"的讲座，算是了却了自己一直的一个心愿：坐在斯坦福的教室里像模像样地听一堂课。建议大家如果有机会来硅谷出差，可以先看看event.stanford.edu，有没有中意的讲座。
 
 
-整个seminar共分为三个环节：Seeing (computer vision), Touching (haptics), learning (Texts are knowledge)，各个都讲得非常精彩，尤其头两个（也许是因为第三个我听不太懂），而最引发我思考的是第二个主题：touching。我先大致讲讲这三个环节都讲了什么，然后再谈谈我对触觉和反馈的感悟。
+整个讲座共分为三个环节：Seeing (computer vision), Touching (haptics), learning (Texts are knowledge)，各个都讲得非常精彩，尤其头两个（也许是因为第三个我听不太懂），而最引发我思考的是第二个主题：touching。我先大致讲讲这三个环节都讲了什么，然后再谈谈我对触觉和反馈的感悟。
 
-第一个是Associate professor Feifei Li讲的计算机视觉，对我启发最大的是：
+第一个是李飞飞副教授讲的计算机视觉，对我启发最大的是：
 
 * Cambrian explosion (寒武纪生物大爆发)及其合理解释（著作：In the blink of an eye）
 * 人类大脑对3D/2D的处理（视觉假象）
@@ -23,11 +23,11 @@ keywords: [技术, 反馈系统]
 * To see is to recognize people（人脸识别，动作识别）
 * To see is to tell the story of the complex visual world（计算机如何像人一样详细描述一张图片所表达的丰富内涵）
 
-第二个是Associate professor Allison讲的计算机触觉，稍后再表。
+第二个是Allison副教授讲的计算机触觉，稍后再表。
 
-第三个是Professor Chris Manning讲自然语言处理。Manning教授在coursera上有NLP的课程（已讲完），感兴趣可以去看回放。这个topic我最感兴趣的是他讲如何从少量上下文信息中获取语言想要表达的情感，这里面有相当复杂的模型，需要为每个单词构建感情色彩强度，还要从整个语法树中判断句子的感情色彩，还要懂得理解写句子人的幽默，比如这句：For the love of God, the cameras are on, give me something? 做自然语言处理真心不容易。作为小白，我表示要好好补习这方面的知识了（coursera的那个课程我entroll了，但一直没怎么听）。
+第三个是Chris Manning教授讲自然语言处理。Manning教授在coursera上有NLP的课程（已讲完），感兴趣可以去看回放。这个主题我最感兴趣的是他讲如何从少量上下文信息中获取语言想要表达的情感，这里面有相当复杂的模型，需要为每个单词构建感情色彩强度，还要从整个语法树中判断句子的感情色彩，还要懂得理解写句子人的幽默，比如这句：For the love of God, the cameras are on, give me something? 做自然语言处理真心不容易。作为小白，我表示要好好补习这方面的知识了（coursera的那个课程我注册了，但一直没怎么听）。
 
-我们再回到第二个topic：计算机触觉。题图的问题来了：如果你不得不一个个失去感官（假设沙加使出了天舞宝轮），你希望哪个能保留到最后？
+我们再回到第二个主题：计算机触觉。题图的问题来了：如果你不得不一个个失去感官（假设沙加使出了天舞宝轮），你希望哪个能保留到最后？
 
 大多数人，包括我，第一反应都是视觉。但其实，没有了触觉是最可怕的，因为你得不到任何反馈，而人类的很多行为都基于反馈。她举了个例子：大多数患有触觉丧失症的病人终身只能躺在床上，但有一个人例外，他坚持着通过自己的视觉来帮助自己获得反馈。为了能够正常走路，他必须训练自己眼睛盯着地面，然后通过「看」了解自己的脚着地，然后迈另一只脚。有时候他路上见到美女，忍不住看一眼（男人的正常反应），然后就扑腾摔倒在地。故事好笑又让人心酸，触觉的重要性可见一斑。
 

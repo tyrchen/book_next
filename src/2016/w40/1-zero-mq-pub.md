@@ -76,6 +76,3 @@ Router/Dealer 模式是典型的 broker 模式。在多对多的网络中， 掮
 ![](assets/mixed.png)
 
 结合 Pub/Sub，Router/Dealer，Pull/Push等模式，我们可以很容易支撑非常复杂的网络应用，如上图所示。
-
-先讲这么多，对此感兴趣的同学可以看 ZeroMQ 的官方 guide，Pieter 亲自操刀撰写的，非常赞，即使你不打算在你的应用中使用 ZeroMQ，但读读这个文档也是非常有益的。
-

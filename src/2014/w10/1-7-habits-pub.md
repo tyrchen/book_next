@@ -47,7 +47,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ```
 
-## 选一个样板，follow之
+## 选一个样板，追随之
 
 每个NBA新秀都有自己的样板，我们也总习惯称某足球新星为『小罗』，『小小罗』。样板为你提供了可模仿可追赶的对象，同时也让你审视自己究竟想成为什么样的程序员。我的样板是Greg Pass和Werner Vogels，虽然我这辈子可能也达不到他们的高度，可这并不妨碍向着我心目中的明星一步步靠近。
 

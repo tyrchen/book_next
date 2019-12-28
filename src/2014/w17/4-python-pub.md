@@ -1,10 +1,10 @@
 ---
-title: 谈谈Python
+title: 谈谈 Python
 author: [程序君]
 keywords: [技术, python]
 ---
 
-# 谈谈Python
+# 谈谈 Python
 
 ## 文化和关怀
 
@@ -130,7 +130,7 @@ Out[10]: u'{"..."}'
 
 ## 并发（concurrency）支持
 
-在2.3里python有了generator，它是coroutine的基石。generator允许你挂起当前的执行点，使得同步的代码转为异步，顺序执行的程序具备潜在并行执行（Parallelism）的能力，比如说我们做个fabonacci数列：
+在2.3里python有了生成器。生成器允许你挂起当前的执行点，使得同步的代码转为异步，顺序执行的程序具备并发执行的能力，比如说我们做个fabonacci数列：
 
 ```
 def fabonacci():
@@ -140,7 +140,7 @@ def fabonacci():
         yield b
 ```
 
-通过generator，代码一下子具备了lazy evaluation的能力，只有在你需要的时候，数据才被计算出来。也许你在这里看不到并发的影子，那么请你想象一下满是generator的世界，每个generator都有自己的执行栈，如果你写个scheduler，将generator调入调出，这不就是coroutine么？当然，python有自己的coroutine库，gevent，基于效率最高的libev。比如用gevent实现actor model（erlang的基石）：
+通过生成器，代码一下子具备了惰性求值（lazy evaluation）的能力，只有在你需要的时候，数据才被计算出来。也许你在这里看不到并发的影子，那么请你想象一下满是生成器的世界，每个生成器都有自己的执行栈，如果你写个调度器，将生成器调入调出，这不就是协程（coroutine）么？当然，python有自己的协程库，gevent，基于效率最高的libev。比如用gevent实现actor model（erlang的基石）：
 
 ```
 import gevent
@@ -168,7 +168,7 @@ class Actor(gevent.Greenlet):
 
 ## Python的缺陷
 
-好吧，任何语言总有其阴暗面。Python（CPython）有个臭名昭著的GIL（当然这也不是python独有的，ruby也有MRI），全局解释锁，任何代码的执行都必须先获得这个全局锁，当有IO操作时释放这把锁。有了这个全局锁，Python的threading实际上是一个虚假的概念，无论你有多少个thread，只能使用一个核。你可以做个threading的实验：
+好吧，任何语言总有其阴暗面。Python（CPython）有个臭名昭著的GIL（当然这也不是python独有的，ruby也有MRI），全局解释锁，任何代码的执行都必须先获得这个全局锁，当有IO操作时释放这把锁。有了这个全局锁，Python的多线程实际上是一个虚假的概念，无论你有多少个线程，只能使用一个核。你可以做个多线程的实验：
 
 ```
 import threading
@@ -187,7 +187,7 @@ dead_loop()
 t.join()
 ```
 
-以及multiprocessing的测试：
+以及多进程的测试：
 
 ```
 import multiprocessing
@@ -206,6 +206,6 @@ dead_loop()
 p.join()
 ```
 
-看看二者CPU占用率的差异。threading很不给力啊！
+看看二者CPU占用率的差异。多线程很不给力啊！
 
-当然，你无须为此感到太悲观。多线程用不到Multicore的能力，但多进程可以，虽然多进程开销大些，但终究能多少弥补GIL带来的缺憾。
+当然，你无须为此感到太悲观。多线程用不到多核的能力，但多进程可以，虽然多进程开销大些，但终究能多少弥补GIL带来的缺憾。

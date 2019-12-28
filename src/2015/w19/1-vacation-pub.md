@@ -1,7 +1,7 @@
 ---
 title: 南游漫记
 author: [程序君]
-keywords: [杂谈, 随笔]
+keywords: [杂谈, 旅行]
 ---
 
 # 南游漫记

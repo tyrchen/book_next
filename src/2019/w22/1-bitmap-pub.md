@@ -35,7 +35,6 @@ keywords: [技术, bitmap]
 * *set?(bitmap, index): 测试高度为 index 的 bit 是否为 1。
 * msb(bitmap): 获得 bitmap 最高位 1 的 index，比如 msb(0b1011) = 3
 * msb(bitmap, m): 获得 bitmap 头 m 个位是 1 的 index，比如 msb(0b1011, 3) = [3, 1, 0]
-```
 
 这样，我们可以这样优化业务逻辑：
 
@@ -44,7 +43,6 @@ keywords: [技术, bitmap]
 3. 然后拿到高度的 list 后，依次从 state db 取对应的数据。
 
 到这里，理论上来说，我们的 API 的性能会提升数个量级。不过这个 bitmap 和传统的有固定长度的 bitmap 略微不同，它会随着时间不断扩展。这里我们利用 elixir/erlang 支持任意精度的大整数的能力，做了一个取巧的算法 —— 我们的 bitmap 就用一个整数来标识。
-
 
 > 注：erlang 的大整数实际上也有限制的 —— 当这个整数有超过 3500万个 bits 时，系统会报错，也就是说，erlang 无法产生和处理一个占用内存超过 4M 字节的整数。考虑到 128 bits 的整数（IPv6）就可以「为地球上每一粒沙子都分配一个 IP 地址」，3500w bits 可以说是个无穷大的整数了
 
@@ -202,4 +200,4 @@ population count 1                      50.11       19.96 ms     ±3.97%       1
 
 性能还是相当不错滴。目前这是没有优化的版本，前前后后零零散散花了几个小时写的。对于文章一开始我们遇到的问题，以目前 benchmark 出来的 performance 而言，足够用了（后续的瓶颈已经不在这里）。它支持 bitmap 的上限大概在 35 million bits 左右，考虑到几秒钟出一个区块，如果按 10s 来算，350 million seconds 大约是 11 年，足够撑一段时间了。当然，这个算法还有很大的优化的余地 —— 考虑到区块链的特殊性，一个区块生成之后就是只读的，bit 一旦被设置就不会被 unset，这里可以做很多（特殊的）优化；此外，block height，也就是 index 是线性增长的，因而旧的 bitmap（冷数据）可以放在磁盘上，需要再加载，内存中只需保留一个很小的热数据即可，时间和空间上，可以再提升一到几个量级；此外，GraphQL API 层还可以加缓存进一步提升性能。
 
-对源码感兴趣的读者可以戳「阅读原文」，或者移步到 github.com/tyrchen/simple_bitmap 访问。代码很简单，加注释也就两百行。
+对源码感兴趣的读者可以移步到 github.com/tyrchen/simple_bitmap 访问。代码很简单，加注释也就两百行。

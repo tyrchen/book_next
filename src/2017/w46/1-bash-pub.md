@@ -112,7 +112,7 @@ aws s3 cp s3://$BUCKET/$KEY - | gunzip -c | edgecast_parser
 
 这样简单处理之后，CPU 利用率一下子上来了：
 
-![](/assets/xargs_cpu.jpg)
+![](assets/xargs_cpu.jpg)
 
 到目前为止，我写了 65 行 elixir 代码处理 tsv，18 行 bash 脚本粘合一切，并在单机并发。很好很强大。如果全部用 elixir 撰写，实现相同的功能，相同的能力，估计要几百行代码。事实上，周末我捣鼓方案二，费了好大的功夫，额外引入了三四个库，甚至修改了一个库（elixir 没有封装地不错的支持 stream 的 gunzip 的库），代码还只是个半成品。今天花了一个多小时，就搞定了上述的方案，且干净漂亮。
 

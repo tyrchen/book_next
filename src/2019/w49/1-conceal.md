@@ -2,7 +2,7 @@
 title: '用 noise 协议的思路来点对点加密文件？'
 cover: 'assets/encrypt.jpg'
 author: [程序君]
-keywords: [技术, noise]
+keywords: [技术, 安全, noise]
 ---
 
 # 用 noise 协议的思路来点对点加密文件？

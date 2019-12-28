@@ -508,7 +508,7 @@ REST API（以下凡提到 API，都指 REST API）是什么？REST API 是服�
 
 swagger 是最早也是最成熟的 API 接口设计工具。它可以使用 json/yaml 来描述 API 的接口，使用 swagger 来设计和描述 API 有很多好处：API 的文档化，API 的接口的可视化，各种语言的客户端类库的自动生成，甚至服务端代码也能够自动生成。包括代码生成工具在内的完整而成熟的工具链是 swagger 的杀手锏，也是众多 API 厂商优先选择 swagger 的一个重要因素。
 
-![](images/swagger_tools.png)
+![](assets/swagger_tools.png)
 
 我们看 swagger 的一个例子（instagram API）：
 
@@ -561,13 +561,13 @@ API Blueprint 更偏向 API 的文档化，所以它选择的描述语言是 mar
 
 所以，权衡之下，三者之间，我最先淘汰的是 API blueprint。
 
-![](images/blueprint.png)
+![](assets/blueprint.png)
 
 ### RAML
 
 RAML 使用 yaml 来描述 API。它被设计地很灵活，很容易把描述分解到多个文件里然后相互引用。
 
-![](images/raml.png)
+![](assets/raml.png)
 
 就描述语言来说，RAML 像是一个蓬勃向上的少年，精明而干练；而 swagger 已经垂垂老矣，冗长而乏味。我一开始在 RAML 和 swagger 两者间左右摇摆，写了不少测试代码，如果不是 swagger 的工具链过于吸引人，而 RAML 1.0 版本还处在 beta 阶段，我可能会最终选择 RAML。
 
@@ -581,11 +581,11 @@ swagger 考虑到了这一点，它能帮你生成客户端的 SDK 和服务器�
 
 不必过虑。我们可以把代码的结构调整地更贴近描述语言。你可以先撰写代码把 API 的输入输出定义清楚，然后通过这个定义来生成 swagger 文档，在 swagger-ui 里面调试和验证；当借口设计符合期望后，再完成具体的实现。比如说这样用代码描述 API：
 
-![](images/logout.png)
+![](assets/logout.png)
 
 抛开 action 是什么不提，这段代码几乎和你用 YAML 描述 API 的接口如出一辙（这里缺了描述 response 的内容）。我们可以使用它生成 swagger 文档来验证：
 
-![](images/logout_api.png)
+![](assets/logout_api.png)
 
 通过代码反向生成 swagger 文档的好处是代码和文档总是一致的，API 的实现和契约相互印证；缺点是程序员看见代码就像看见九天仙女一样，眼迷心荡，刚定义好接口，还未细思，就忙不迭地去实现了。
 

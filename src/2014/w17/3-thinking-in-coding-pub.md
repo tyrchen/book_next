@@ -40,9 +40,9 @@ OCP原则是说「软件要对扩展开放，对修改封闭」。比如你写�
 
 SoC听起来高大上，其实就是解耦，将复杂系统分治成不同的子系统，尽可能将变化控制在子系统中。如果你十多年前做过互联网，就知道那时的html混杂着语义和样式，牵一发而动全身；现在的网站html/css基本分离，上帝的归上帝，撒旦的归撒旦，各司其职。这就是SoC。另一个SoC的经典应用场景就是MVC design pattern —— 整个系统的逻辑被分成 Model，View，Controller三层，（理想状态下）其中一层的改动不会影响到另一层。
 
-IoC原则的思想是"Don't call me, I'll call you"。这一原则促使软件产业从lib时代发展到framework时代。想想libc，里面有各种各样的函数供你驱使，整个控制权在你；再看看django这样的framework，你并没有整个系统的控制权，你只能被动地按照规范写出一个个函数或类，在必要的时候由framework调用。使用IoC原则的好处是高级的细节和逻辑被隐藏，开发者只需要关注business logic。比如说使用ChicagoBoss（erlang的一个 web framework）来写web app，你写的代码基本上是顺序的，并发（concurrency）无关的，但整个系统的执行是异步的，大量并发的。
+IoC原则的思想是"Don't call me, I'll call you"。这一原则促使软件产业从代码库时代发展到应用框架时代。想想libc，里面有各种各样的函数供你驱使，整个控制权在你；再看看django这样的应用框架，你并没有整个系统的控制权，你只能被动地按照规范写出一个个函数或类，在必要的时候由应用框架调用。使用IoC原则的好处是高级的细节和逻辑被隐藏，开发者只需要关注business logic。比如说使用ChicagoBoss（erlang的一个 web 应用框架）来写web app，你写的代码基本上是顺序的，并发（concurrency）无关的，但整个系统的执行是异步的，大量并发的。
 
-CoC原则出自Rails（或者至少Rails将其发扬光大），它的意思是：为了简单起见，我们写代码按照一定的约定写（代码放在什么目录，用什么文件名，用什么类名等），这样省去了很多不必要的麻烦（但也不失flexibility，因为约定可以通过配置修改），比如说在ember里component的定义在controller里要CamelCase，在template里要用"-"。在django里，只要你在"app/management/commands"里写一个文件，继承BaseCommand类，就可以通过"./manage.py xxx"运行你的命令。
+CoC原则出自Rails（或者至少Rails将其发扬光大），它的意思是：为了简单起见，我们写代码按照一定的约定写（代码放在什么目录，用什么文件名，用什么类名等），这样省去了很多不必要的麻烦（但也不失灵活性，因为约定可以通过配置修改），比如说在ember里组件的定义在controller里要CamelCase，在template里要用"-"。在django里，只要你在"app/management/commands"里写一个文件，继承BaseCommand类，就可以通过"./manage.py xxx"运行你的命令。
 
 Indirection/Layering原则也是为了解耦，就是把系统分成不同的层次，严格规定层次间的调用关系。layering最著名的例子是ISO/OSI七层模型；indirection最著名的例子是hypervisor。软件领域最著名的一句话是："All problems in computer science can be solved by another level of indirection."
 
@@ -90,11 +90,11 @@ def process(l, test, action):
     return filter(None, map(f, l))
 ```
 
-这个函数可以应用于很多场景，比如说：「从公司的directory里找到所有女性工程师，将她们的工资统一涨10%」，「给我自己的微博里所有在北京的粉丝发一条消息」这样两个看似完全无关的场景。最重要的是，process函数一旦写完，就基本不需要任何改动而应用于这两个（甚至更多的）场景。从这里也可以看出，GP的一个作用就是实现OCP原则。
+这个函数可以应用于很多场景，比如说：「从公司的通讯录里找到所有女性工程师，将她们的工资统一涨10%」，「给我自己的微博里所有在北京的粉丝发一条消息」这样两个看似完全无关的场景。最重要的是，process函数一旦写完，就基本不需要任何改动而应用于这两个（甚至更多的）场景。从这里也可以看出，GP的一个作用就是实现OCP原则。
 
-以上所述原则和范式都与具体的语言无关，是可以放之四海而皆准的基本思想。但Metaprogramming不然。它跟语言的能力很有关系。
+以上所述原则和范式都与具体的语言无关，是可以放之四海而皆准的基本思想。但元编程（metaprogramming）不然。它跟语言的能力很有关系。
 
-狭义的metaprogramming指代码能够将代码当作数据操作，广义讲就是在接近语言级的层面写的让代码更具动态性的代码。先举一个后者的例子：
+狭义的元编程指代码能够将代码当作数据操作，广义讲就是在接近语言级的层面写的让代码更具动态性的代码。先举一个后者的例子：
 
 ```
 class dotdict(dict):
@@ -108,9 +108,9 @@ dd.a
 1
 ```
 
-在python里，访问字典需要使用"[]"，但我们可以使用语言自身的魔法函数（magic functions）将"."操作与"[]"映射起来，达到使用"."来访问字典的效果（就像javascript一样）。字典里的key是无限延伸的，你无法对每个key生成一个方法，但求助于语言层的能力，就可以做到这一点。同理，如果让你写一个微博的api的sdk，你不必为每一个api写一个方法，一个``__getattr__``就可以将所有api抽象统一。这就是广义的metaprogramming，让代码更具动态性。
+在python里，访问字典需要使用"[]"，但我们可以使用语言自身的魔法函数（magic functions）将"."操作与"[]"映射起来，达到使用"."来访问字典的效果（就像javascript一样）。字典里的key是无限延伸的，你无法对每个key生成一个方法，但求助于语言层的能力，就可以做到这一点。同理，如果让你写一个微博的api的sdk，你不必为每一个api写一个方法，一个``__getattr__``就可以将所有api抽象统一。这就是广义的元编程，让代码更具动态性。
 
-狭义的metaprogramming用django的ORM来说明最好:
+狭义的元编程用django的ORM来说明最好:
 
 ```
 class TagItem(models.Model):
@@ -124,9 +124,9 @@ class TagItem(models.Model):
     item = generic.GenericForeignKey('content_type', 'object_id')
 ```
 
-复杂的Object relational mapping以这样一种declarative的方式解决了（你甚至可以将它看成一种DSL，Domain Specific Language），如果没有metaprogramming的支持，想想你如何以如此优雅地方式实现这种mapping？
+复杂的 对象关系映射以这样一种描述式的方法解决了（你甚至可以将它看成一种DSL，Domain Specific Language），如果没有元编程的支持，想想你如何以如此优雅地方式实现这种映射？
 
-当然，就metaprogramming的能力而言，把代码完全看做数据（列表展开与求值）的lisp族语言更甚一筹。这是我为何说metaprogramming的能力和语言相关。我没有真正写过lisp代码（clojure仅仅写了几个hello world级的函数），但据说lisp程序员写一个系统时，会先写一个针对该系统的DSL，然后再用这个DSL写代码。听说而已，我没有亲见。
+当然，就元编程的能力而言，把代码完全看做数据（列表展开与求值）的lisp族语言更甚一筹。这是我为何说元编程的能力和语言相关。我没有真正写过lisp代码，但据说lisp程序员写一个系统时，会先写一个针对该系统的DSL，然后再用这个DSL写代码。听说而已，我没有亲见。
 
 ## 方法论
 
@@ -216,6 +216,6 @@ boomBangs xs = [if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]
 
 ## 模式（Patterns）
 
-模式是在系统开发的过程中反复被用到的一些解决具体问题的思想。设计模式（Design patterns）首先由GoF（Gang of Four）总结，然后在Java中发扬光大。其实随着语言的进化，不少模式已经被整合在语言当中，比如iterator，有些已经固化到你写代码的方式当中，比如bridge，decorator，有些在framework里在不断使用而你不知道，如经典的MVC，如django的middleware（chain of responsibility），command（command pattern）等等。时间关系，就不一一道来。
+模式是在系统开发的过程中反复被用到的一些解决具体问题的思想。设计模式（Design patterns）首先由GoF（Gang of Four）总结，然后在Java中发扬光大。其实随着语言的进化，不少模式已经被整合在语言当中，比如iterator，有些已经固化到你写代码的方式当中，比如bridge，decorator，有些在应用框架里在不断使用而你不知道，如经典的MVC，如django的middleware（chain of responsibility），command（command pattern）等等。时间关系，就不一一道来。
 
 最后，写代码是为了解决问题，而不是秀肌肉。脑袋里有了大原则，那么范式，方法论，模式这些实现手段哪个顺手，哪个更好地能解决问题就用哪个。代码写出来首先要为功能服务，其次为可读性服务，不是为某个思想服务的，也就是说，不要为了OO而OO，不要为了MP而MP，那样没有意义。
