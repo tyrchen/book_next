@@ -1,7 +1,7 @@
 ---
 title: 'ArcBlock 一周年'
 authors: [程序君]
-keywords: [杂谈]
+keywords: [技术, 区块链]
 ---
 
 # ArcBlock 一周年

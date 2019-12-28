@@ -4,3 +4,4 @@ _book
 *.epub
 node_modules
 output
+src/1-summary-pub.md

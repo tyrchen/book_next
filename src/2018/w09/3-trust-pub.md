@@ -1,7 +1,7 @@
 ---
 title: '诚者，天之道也'
 authors: [程序君]
-keywords: [技术, 信任]
+keywords: [技术, 区块链]
 ---
 
 # 诚者，天之道也
