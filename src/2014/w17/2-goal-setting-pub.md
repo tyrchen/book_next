@@ -1,7 +1,7 @@
 ---
 title: 设定目标
 author: [程序君]
-keywords: [成长, 目标]
+keywords: [成长, 个人成长, 目标]
 ---
 
 # 设定目标

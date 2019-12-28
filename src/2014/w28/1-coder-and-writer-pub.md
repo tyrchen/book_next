@@ -1,7 +1,7 @@
 ---
 title: 程序员与作家
 author: [程序君]
-keywords: [杂谈, 作家]
+keywords: [杂谈, 人生感悟, 作家]
 ---
 
 # 程序员与作家

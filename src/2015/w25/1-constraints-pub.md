@@ -1,7 +1,7 @@
 ---
 title: 拥抱约束
 author: [程序君]
-keywords: [技术, 约束]
+keywords: [技术, 方法论, 约束]
 ---
 
 # 拥抱约束

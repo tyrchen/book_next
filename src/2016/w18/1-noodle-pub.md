@@ -1,7 +1,7 @@
 ---
 title: '程序员和拉条子'
 authors: [程序君]
-keywords: [技术, 架构]
+keywords: [技术, 架构设计]
 ---
 
 # 程序员和拉条子

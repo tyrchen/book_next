@@ -1,7 +1,7 @@
 ---
 title: '如何选择合适的工作'
 authors: [程序君]
-keywords: [成长, 工作]
+keywords: [成长, 职场]
 ---
 
 # 如何选择合适的工作

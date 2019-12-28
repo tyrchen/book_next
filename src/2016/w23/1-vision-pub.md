@@ -1,7 +1,7 @@
 ---
 title: '漫谈工程师的三观'
 authors: [程序君]
-keywords: [成长, 三观]
+keywords: [技术, 成长]
 ---
 
 # 漫谈工程师的三观

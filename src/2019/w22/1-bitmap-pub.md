@@ -1,7 +1,7 @@
 ---
 title: '谈谈 Bitmap'
 authors: [程序君]
-keywords: [技术, bitmap]
+keywords: [技术, 数据结构, bitmap]
 ---
 
 # 谈谈 Bitmap

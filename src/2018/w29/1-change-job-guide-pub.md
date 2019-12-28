@@ -1,7 +1,7 @@
 ---
 title: '银河系跳槽指南'
 authors: [程序君]
-keywords: [成长, 跳槽]
+keywords: [成长, 职场, 跳槽]
 ---
 
 # 银河系跳槽指南

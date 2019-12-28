@@ -1,7 +1,7 @@
 ---
 title: 谈谈 Python
 author: [程序君]
-keywords: [技术, python]
+keywords: [技术, 编程语言, python]
 ---
 
 # 谈谈 Python

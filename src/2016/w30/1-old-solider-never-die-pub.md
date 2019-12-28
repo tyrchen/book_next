@@ -1,7 +1,7 @@
 ---
 title: '老兵不死'
 authors: [程序君]
-keywords: [杂谈, 创新工场]
+keywords: [杂谈, 人生感悟, 创新工场]
 ---
 
 # 老兵不死

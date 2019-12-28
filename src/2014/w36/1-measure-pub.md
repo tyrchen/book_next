@@ -1,7 +1,7 @@
 ---
 title: 测量
 author: [程序君]
-keywords: [技术, 测量]
+keywords: [技术, 方法论, 测量]
 ---
 
 # 测量

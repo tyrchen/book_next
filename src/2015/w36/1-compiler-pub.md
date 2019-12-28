@@ -1,7 +1,7 @@
 ---
 title: 软件随想录
 author: [程序君]
-keywords: [技术, 随笔]
+keywords: [技术, 方法论, 随笔]
 ---
 
 # 软件随想录

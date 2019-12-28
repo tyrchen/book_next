@@ -1,7 +1,7 @@
 ---
 title: '谈谈状态机'
 authors: [程序君]
-keywords: [技术, 状态机]
+keywords: [技术, 方法论, 状态机]
 ---
 
 # 谈谈状态机

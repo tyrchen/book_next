@@ -1,7 +1,7 @@
 ---
 title: 黑匣子
 author: [程序君]
-keywords: [技术, 黑匣子]
+keywords: [技术, 技术工具, 黑匣子]
 ---
 
 # 黑匣子

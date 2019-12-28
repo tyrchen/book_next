@@ -1,7 +1,7 @@
 ---
 title: '数学之美'
 authors: [程序君]
-keywords: [技术, 数学]
+keywords: [技术, 技术思考, 数学]
 ---
 
 

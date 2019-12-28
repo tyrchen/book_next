@@ -1,7 +1,7 @@
 ---
 title: 再见西二旗
 author: [程序君]
-keywords: [杂谈, 西二旗]
+keywords: [杂谈, 随笔, 西二旗]
 ---
 
 # 再见西二旗

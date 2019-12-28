@@ -1,7 +1,7 @@
 ---
 title: '脑力游戏：EventEmitter 的异步处理'
 authors: [程序君]
-keywords: [技术, nodejs, 异步处理]
+keywords: [技术, 技术思考, nodejs, 异步处理]
 ---
 
 # 脑力游戏：EventEmitter 的异步处理

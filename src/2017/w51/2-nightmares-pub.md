@@ -1,7 +1,7 @@
 ---
 title: '梦魇三则'
 authors: [程序君]
-keywords: [杂谈, 梦魇]
+keywords: [杂谈, 随笔, 梦魇]
 ---
 
 # 梦魇

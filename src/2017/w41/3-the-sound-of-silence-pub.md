@@ -1,7 +1,7 @@
 ---
 title: 'The sound of silence：网络传输的小众黑科技'
 authors: [程序君]
-keywords: [技术, 超声波]
+keywords: [技术, 技术工具, 超声波]
 ---
 
 # The sound of silence：网络传输的小众黑科技

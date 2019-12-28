@@ -1,7 +1,7 @@
 ---
 title: '数据：逍遥游'
 authors: [程序君]
-keywords: [技术, 数据]
+keywords: [技术, 技术思考, 数据]
 ---
 
 # 数据：逍遥游

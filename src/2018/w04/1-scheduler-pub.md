@@ -1,7 +1,7 @@
 ---
 title: '当我谈 scheduling 时我在谈什么？'
 authors: [程序君]
-keywords: [技术, 调度, 算法]
+keywords: [技术, 架构设计, 调度, 算法]
 ---
 
 # 当我谈 scheduling 时我在谈什么？

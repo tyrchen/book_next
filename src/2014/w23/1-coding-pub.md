@@ -1,7 +1,7 @@
 ---
 title: 谈谈编程
 author: [程序君]
-keywords: [杂谈, 编程]
+keywords: [杂谈, 随笔, 编程]
 ---
 
 # 谈谈编程

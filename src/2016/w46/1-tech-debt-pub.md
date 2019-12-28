@@ -1,7 +1,7 @@
 ---
 title: '技术债：the good, the bad, and the tao'
 authors: [程序君]
-keywords: [技术, 技术债]
+keywords: [技术, 方法论, 技术债]
 ---
 
 # 技术债：the good, the bad, and the tao

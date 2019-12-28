@@ -1,7 +1,7 @@
 ---
 title: CA985上的故事
 author: [程序君]
-keywords: [杂谈, 奇遇]
+keywords: [杂谈, 随笔, 奇遇]
 ---
 
 # CA985上的故事

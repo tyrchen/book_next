@@ -1,7 +1,7 @@
 ---
 title: '抽象的能力'
 authors: [程序君]
-keywords: [技术, 抽象]
+keywords: [技术, 方法论, 抽象]
 ---
 
 

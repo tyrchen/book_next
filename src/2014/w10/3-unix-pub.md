@@ -1,7 +1,7 @@
 ---
 title: 浅谈unix之美
 author: [程序君]
-keywords: [技术, unix]
+keywords: [技术, 技术思考, unix]
 ---
 
 # 浅谈unix之美

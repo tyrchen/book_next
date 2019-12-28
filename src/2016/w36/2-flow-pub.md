@@ -1,7 +1,7 @@
 ---
 title: '从 Pipe 到 Flow'
 authors: [程序君]
-keywords: [技术, flow]
+keywords: [技术, 方法论, flow]
 ---
 
 # 从 Pipe 到 Flow

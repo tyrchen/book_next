@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs').promises;
-const path = require('path');
 const fm = require('front-matter');
-const pinyin = require('chinese-to-pinyin');
-const slugify = require('@sindresorhus/slugify');
 const R = require('ramda');
 
 async function get_keywords(src) {
@@ -13,16 +10,14 @@ async function get_keywords(src) {
 
 function filter_keywords(data, keyword) {
   const f = item => item.keywords && item.keywords[0] == keyword;
-  const g = item => item.keywords[1]
-  R.groupBy(g, R.filter(f, data))
-  const filter = R.compose(
+  const g = item => item.keywords[1];
+  const do_filter = R.compose(
       R.replace(/src/g, 'output'), R.join(' '), R.map(R.prop('src')), R.flatten,
       R.values, R.groupBy(g), R.filter(f));
-  return filter(data);
+  return do_filter(data);
 }
 
-
-async function process(srcs, keyword) {
+async function do_process(srcs, keyword) {
   const data = await Promise.all(srcs.map(get_keywords));
 
   let result = srcs;
@@ -30,8 +25,7 @@ async function process(srcs, keyword) {
     result = filter_keywords(data, keyword);
   }
 
-  console.log(result);
-  // process.stdout.write(`${result}\n`);
+  process.stdout.write(`${result}\n`);
 }
 
 async function main() {
@@ -46,7 +40,7 @@ async function main() {
                    .demandOption(['filter'], 'Please provide filter')
                    .argv;
 
-  await process(argv._, argv.filter);
+  await do_process(argv._, argv.filter);
 }
 
 main();

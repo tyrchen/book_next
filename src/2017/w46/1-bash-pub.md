@@ -1,7 +1,7 @@
 ---
 title: '切莫低估 bash 的威力'
 authors: [程序君]
-keywords: [技术, 自动化, bash]
+keywords: [技术, 技术工具, 自动化, bash]
 ---
 
 # 切莫低估 bash 的威力

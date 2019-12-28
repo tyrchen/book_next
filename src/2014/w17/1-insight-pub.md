@@ -1,7 +1,7 @@
 ---
 title: 技术人的视野
 author: [程序君]
-keywords: [成长, 视野]
+keywords: [成长, 职场, 视野]
 ---
 
 # 技术人的视野

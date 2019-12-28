@@ -1,7 +1,7 @@
 ---
 title: 为什么SOA如此重要
 author: [程序君]
-keywords: [技术, SOA]
+keywords: [技术, 技术思考, SOA]
 ---
 
 # 为什么SOA如此重要

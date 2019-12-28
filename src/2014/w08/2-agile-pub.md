@@ -1,7 +1,7 @@
 ---
 title: 谈敏捷
 author: [程序君]
-keywords: [技术, 敏捷]
+keywords: [技术, 技术思考, 敏捷]
 ---
 
 # 谈敏捷

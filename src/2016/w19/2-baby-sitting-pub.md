@@ -1,7 +1,7 @@
 ---
 title: '小宝虐爹录（二）'
 authors: [程序君]
-keywords: [杂谈, 快乐]
+keywords: [杂谈, 生活, 快乐]
 ---
 
 

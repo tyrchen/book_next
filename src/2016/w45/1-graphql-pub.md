@@ -1,7 +1,7 @@
 ---
 title: 'GraphQL 的利与弊'
 authors: [程序君]
-keywords: [技术, GraphQL, API]
+keywords: [技术, 技术工具, GraphQL]
 ---
 
 # GraphQL 的利与弊

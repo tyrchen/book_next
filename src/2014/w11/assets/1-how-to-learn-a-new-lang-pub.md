@@ -1,7 +1,7 @@
 ---
-title: 浅谈unix之美
+title: 如何从零开始学一门程序语言？
 author: [程序君]
-keywords: [技术, unix]
+keywords: [技术, 编程语言]
 ---
 
 # 如何从零开始学一门程序语言？

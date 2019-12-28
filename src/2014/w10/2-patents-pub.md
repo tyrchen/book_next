@@ -1,7 +1,7 @@
 ---
 title: 如何发表专利
 author: [程序君]
-keywords: [成长, 专利]
+keywords: [成长, 创新, 专利]
 ---
 
 # 如何发表专利

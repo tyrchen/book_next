@@ -1,7 +1,7 @@
 ---
 title: '上帝说：要有一门面向未来的语言，于是有了 erlang'
 authors: [程序君]
-keywords: [技术, erlang]
+keywords: [技术, 编程语言, erlang]
 ---
 
 # 上帝说：要有一门面向未来的语言，于是有了 erlang

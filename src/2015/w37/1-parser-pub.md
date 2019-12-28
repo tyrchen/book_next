@@ -1,10 +1,10 @@
 ---
-title: 如何愉快地写个小parser
+title: 如何愉快地写个解释器
 author: [程序君]
-keywords: [技术, 解释器]
+keywords: [技术, 技术工具, 解释器]
 ---
 
-# 如何愉快地写个小parser
+# 如何愉快地写个解释器
 
 （一）
 

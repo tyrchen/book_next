@@ -1,7 +1,7 @@
 ---
 title: '思考，快与慢'
 authors: [程序君]
-keywords: [技术, 架构]
+keywords: [技术, 架构设计]
 ---
 
 # 思考，快与慢

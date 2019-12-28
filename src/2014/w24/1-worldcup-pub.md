@@ -1,7 +1,7 @@
 ---
 title: 世界杯情缘
 author: [程序君]
-keywords: [杂谈, 足球]
+keywords: [杂谈, 随笔, 足球]
 ---
 
 # 世界杯情缘

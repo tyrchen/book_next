@@ -1,6 +1,7 @@
 MDOC=mdoc
 TRANSFORM=tools/transform.js
 GEN_SUMMARY=tools/gen_summary.js
+GEN_TOC=tools/gen_toc.js
 FILTER_KEYWORD=tools/filter_keyword.js
 
 VERSION=$(strip $(shell cat version))
@@ -90,7 +91,7 @@ run:
 
 $(BOOK_HTML):$(PUB_RDOCS)
 	@$(eval FILTERED_DOCS := $(shell $(FILTER_KEYWORD) -f "$(KEYWORD)" $(PUB_DOCS)))
-	@$(GEN_SUMMARY) -o src/1-summary-pub.md $(FILTERED_DOCS) --toc
+	@$(GEN_TOC) -o src/1-summary-pub.md $(FILTERED_DOCS)
 	@$(MDOC) src/0-intro-pub.md src/1-summary-pub.md $(FILTERED_DOCS) -o $(BOOK_HTML)
 
 $(DIRECTORIES):$(OUTPUT)/%:$(SRC)

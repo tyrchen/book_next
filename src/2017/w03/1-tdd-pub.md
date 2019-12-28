@@ -1,7 +1,7 @@
 ---
 title: '如何用正确的姿势打开 TDD？'
 authors: [程序君]
-keywords: [技术, TDD]
+keywords: [技术, 方法论, TDD]
 ---
 
 # 如何用正确的姿势打开 TDD？

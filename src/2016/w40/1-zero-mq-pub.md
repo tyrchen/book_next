@@ -1,7 +1,7 @@
 ---
 title: '0MQ 的世界'
 authors: [程序君]
-keywords: [技术, zeromq]
+keywords: [技术, 技术工具, zeromq]
 ---
 
 # 0MQ 的世界

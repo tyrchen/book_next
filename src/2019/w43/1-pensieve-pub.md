@@ -1,7 +1,7 @@
 ---
 title: '冥想盆'
 authors: [程序君]
-keywords: [成长, 写作, 冥想盆]
+keywords: [成长, 学习, 写作, 冥想盆]
 ---
 
 # 冥想盆

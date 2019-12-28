@@ -1,7 +1,7 @@
 ---
 title: '调度算法 - Linux O(1)'
 authors: [程序君]
-keywords: [技术, 调度, 算法]
+keywords: [技术, 架构设计, 调度, 算法]
 ---
 
 # 调度算法 - Linux O(1)

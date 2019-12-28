@@ -1,7 +1,7 @@
 ---
 title: 缘分天注定？
 author: [程序君]
-keywords: [成长, 缘分]
+keywords: [成长, 个人成长, 缘分]
 ---
 
 # 缘分天注定？

@@ -1,7 +1,7 @@
 ---
 title: 谈谈读书
 author: [程序君]
-keywords: [成长, 读书]
+keywords: [成长, 学习, 读书]
 ---
 
 # 谈谈读书

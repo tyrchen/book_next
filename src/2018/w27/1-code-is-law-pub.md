@@ -1,11 +1,11 @@
 ---
-title: 'ode is Law'
+title: '代码即规则：Code is Law'
 authors: [程序君]
-keywords: [技术, 技术流程]
+keywords: [技术, 区块链, 技术流程]
 ---
 
 
-# Code is Law
+# 代码即规则：Code is Law
 
 如果你以为本文是在讲 Ethereum，或者 Smart Contract，那我非常抱歉。本文将要讲述的是 Engineering practices 以及我对一些流程的思考和应用。
 

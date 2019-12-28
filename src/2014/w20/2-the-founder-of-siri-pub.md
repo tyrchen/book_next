@@ -1,7 +1,7 @@
 ---
 title: 和 Siri 创始人 Adam 面对面
 author: [程序君]
-keywords: [杂谈, meetup]
+keywords: [成长, 个人成长, meetup]
 ---
 
 # 和 Siri 创始人 Adam 面对面

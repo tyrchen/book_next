@@ -1,7 +1,7 @@
 ---
 title: '如和在几十个 Repo 中游刃有余？'
 authors: [程序君]
-keywords: [技术, 自动化]
+keywords: [技术, 方法论, 自动化]
 ---
 
 

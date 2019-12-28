@@ -1,7 +1,7 @@
 ---
 title: '边界（Boundary）'
 authors: [程序君]
-keywords: [技术, 架构]
+keywords: [技术, 架构设计]
 ---
 
 # 边界（Boundary）

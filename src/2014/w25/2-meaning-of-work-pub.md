@@ -1,7 +1,7 @@
 ---
 title: 工作的意义
 author: [程序君]
-keywords: [成长, 工作]
+keywords: [成长, 职场]
 ---
 
 # 工作的意义

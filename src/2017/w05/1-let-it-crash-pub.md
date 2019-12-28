@@ -1,7 +1,7 @@
 ---
 title: 'Let it crash: 因为误解，所以瞎用'
 authors: [程序君]
-keywords: [技术, erlang, elixir]
+keywords: [技术, 编程语言, erlang, elixir]
 ---
 
 # Let it crash: 因为误解，所以瞎用
