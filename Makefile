@@ -23,14 +23,14 @@ RELEASE_FILENAME=tchen
 
 all: build
 	@KEYWORD=技术 make post-build
-	@mv output/tchen.pdf output/程序人生-技术篇.pdf
-	@mv output/tchen.epub output/程序人生-技术篇.epub
+	@mv output/tchen.pdf output/programmer_life_tech.pdf
+	@mv output/tchen.epub output/programmer_life_tech.epub
 	@KEYWORD=成长 make post-build
-	@mv output/tchen.pdf output/程序人生-成长篇.pdf
-	@mv output/tchen.epub output/程序人生-成长篇.epub
+	@mv output/tchen.pdf output/programmer_life_growth.pdf
+	@mv output/tchen.epub output/programmer_life_growth.epub
 	@KEYWORD=杂谈 make post-build
-	@mv output/tchen.pdf output/程序人生-杂谈篇.pdf
-	@mv output/tchen.epub output/程序人生-杂谈篇.epub
+	@mv output/tchen.pdf output/programmer_life_misc.pdf
+	@mv output/tchen.epub output/programmer_life_misc.epub
 
 init: install dep
 	@echo "Initializing the repo..."
