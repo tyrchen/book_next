@@ -14,8 +14,12 @@ release: all
 	@git tag -a $(RELEASE_VERSION) -m "Release $(RELEASE_VERSION). Revision is: $(GIT_VERSION)" || true
 	@git push origin $(RELEASE_VERSION) || true
 	@curl -s -d $(RELEASE_DATA) "$(RELEASE_URL)?access_token=$(GITHUB_TOKEN)" || true
-	.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/$(RELEASE_FILENAME).pdf || true
-	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/$(RELEASE_FILENAME).epub || true
+	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/程序人生-成长篇.pdf || true
+	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/程序人生-技术篇.pdf || true
+	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/程序人生-杂谈篇.pdf || true
+	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/程序人生-成长篇.epub || true
+	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/程序人生-技术篇.epub || true
+	@.makefiles/upload_asset.sh tag=$(RELEASE_VERSION) filename=$(OUTPUT)/程序人生-杂谈篇.epub || true
 
 delete-release:
 	@echo "Delete a release on $(RELEASE_VERSION)"

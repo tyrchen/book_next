@@ -1,3 +1,15 @@
+## 19.52.0 (December 29, 2019)
+  - revise again
+  - revise 2019 final words
+  - revise docs and finish ten-years doc
+  - generate better toc
+  - update tags
+  - add missing docs and revised the build pipeline to make separated pdfs.
+  - update the old docs
+  - add zeromq back
+  - finish all the migration
+  - finish 2014 migration
+
 ## 19.51.0 (December 21, 2019)
   - add 2014 posts
   - move all my previous 2016-2019 posts into this repo for open source.
