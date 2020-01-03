@@ -159,6 +159,7 @@ title: '目录'
 - [Noise 框架：构建安全协议的蓝图](2019/w46/1-noise-protocol-pub.html)
 - [10 分钟重新认识 git](2019/w48/1-git-pub.html)
 - [我们随手做的 git stash，究竟干了什么？](2019/w48/2-git-stash-pub.html)
+- [用 noise 协议的思路来点对点加密文件？](2019/w49/1-conceal-pub.html)
 - [《阿基拉和拼字比赛》观感](2019/w51/1-akeelah-pub.html)
 - [如何安全地保存密码？](2019/w51/2-cellar-pub.html)
 - [致敬时间的价值：一品十年](2019/w52/1-2019-final-words-pub.html)
