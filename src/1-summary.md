@@ -164,4 +164,5 @@ title: '目录'
 - [如何安全地保存密码？](2019/w51/2-cellar-pub.html)
 - [致敬时间的价值：一品十年](2019/w52/1-2019-final-words-pub.html)
 - [暴走的程序员](2020/w03/1-angry-programmer-pub.html)
+- [新年快乐！](2020/w04/1-happy-new-year-pub.html)
 
