@@ -34,8 +34,12 @@ async function extract(src) {
   const { body, attributes } = fm(content);
   const data = body
     .replace(/#+/g, '')
+    .replace(/^\s*\*\s/gm, '')
     .replace(/!\[[^\]]*\]\([^\)]+\)/g, '')
-    .replace(/\s*(\d+)\s*/g, '$1');
+    .replace(/(\d+)\s*/g, '$1')
+    .replace(/```[^`]*```/g, '');
+    
+  console.log(data);
   return data.split(/\<!--\s*split\s*--\>/g);
 }
 
