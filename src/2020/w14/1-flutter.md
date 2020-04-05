@@ -1,7 +1,7 @@
 ---
 title: 'flutter: 一周感悟'
 authors: [程序君]
-cover: 'assets/progress.jpg'
+cover: 'assets/flutter.jpg'
 keywords: [技术, 前端, flutter]
 ---
 

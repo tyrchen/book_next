@@ -45,6 +45,8 @@ keywords: [杂谈, 新年]
 
 为啥 rust？这货一不小心连拿了四年 stackoverflow 用户最喜欢的编程语言，你就不想了解一下？新年穿新衣裳，也试试对自己而言的一门新语言嘛。
 
+<!-- split -->
+
 未来几年的软件开发，protable binary（平台无关的受控可执行代码）会越来越重要，而 webassembly 似乎是目前唯一受到几大厂商全力支持的方向。webassembly 的应用场景不仅仅是 web（比如大型游戏的 web 化），更是服务端虚拟化的一个新的，也许是更优的解决方案。Solumon Kykes，Docker 的创始人和 CTO 说：
 
 > If WASM+WASI existed in 2008, we wouldn't have needed to created Docker. That's how important it is. Webassembly on the server is the future of computing. A standardized system interface was the missing link. Let's hope WASI is up to the task!
