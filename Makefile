@@ -116,6 +116,9 @@ gen-summary: $(PUB_DOCS)
 filter: $(PUB_DOCS)
 	@$(FILTER_KEYWORD) -f "技术" $(PUB_DOCS)
 
+create-week:
+	@mkdir -p src/$(shell date +%Y)/w$(shell date +%V)/assets
+
 include .makefiles/*.mk
 
 .PHONY: build copy-assets watch run mv
