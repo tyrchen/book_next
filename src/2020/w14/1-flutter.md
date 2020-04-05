@@ -17,7 +17,7 @@ keywords: [技术, 前端, flutter]
 
 ## flutter 好在哪里？
 
-和其它跨平台移动应用解决方案不同，flutter 更像是一个游戏引擎，而 flutter 应用是一个披着普通应用外衣的游戏。你可以停下来仔细想想这意味着什么。是的，flutter 构建在一个 2D 图形引擎 Skia 之上。可能很少有人听过 Skia，它是 google 2005 年收购的一家图新引擎公司，由 Michael Reed 创建。有趣的是，05 年 google 还收购了 android。Michael Reed 此人非常低调，我想找和他有关的更多信息却无从下手，这哥们连 LinkedIn 页面都懒得建立。唯一和他有关的消息来自于一篇 2017 年的 techwire 报道："Inside Google's Chapel Hill outpost"，里面提到这哥们依旧在 Google，领导着 Chapel Hill 的四十来个员工。skia 性能非常优秀，在 google 的不断打磨下，后来逐渐成为 chrome 和 android 内置的图形引擎，为两者的成功奠定了坚实的基础。
+和其它跨平台移动应用解决方案不同，flutter 更像是一个游戏引擎，而 flutter 应用是一个披着普通应用外衣的游戏。你可以停下来仔细想想这意味着什么。是的，flutter 构建在一个 2D 图形引擎 Skia 之上。可能很少有人听过 Skia，它是 google 2005 年收购的一家图形引擎公司，由 Michael Reed 创建。有趣的是，05 年 google 还收购了 android。Michael Reed 此人非常低调，我想找和他有关的更多信息却无从下手，这哥们连 LinkedIn 页面都懒得建立。唯一和他有关的消息来自于一篇 2017 年的 techwire 报道："Inside Google's Chapel Hill outpost"，里面提到这哥们依旧在 Google，领导着 Chapel Hill 的四十来个员工。skia 性能非常优秀，在 google 的不断打磨下，后来逐渐成为 chrome 和 android 内置的图形引擎，为两者的成功奠定了坚实的基础。
 
 我们知道，flutter 之前的跨平台移动应用解决方案，有两大主流思路：
 
@@ -41,7 +41,7 @@ flutter 走了一条截然不同的，很有想象力的道路：不依赖已有
 
 所以你看 flutter 每个控件都有一个 `build` 方法，用来控制该控件的渲染。和 react 的 `render` 类似，build 方法里不要放任何计算密集型的代码。
 
-flutter 自己控制渲染的特点，给它带来了很多革命性的优势 —— 这是对 react native / weex 的降维打击。比如说：flutter 很容易创造出来非常酷炫的动画和界面 —— 任何不那么规则的界面，在其他框架，甚至是原生应用看来都是很费劲的工作，通过 flutter 往往简单很多。比如下图：
+flutter 自己控制渲染的特点，给它带来了很多革命性的优势 —— 这是对 react native / weex 的降维打击。比如说：flutter 很容易创造出来非常酷炫的动画和界面 —— 任何不那么规则的，定制型高界面，在其他框架，甚至是原生应用看来都是很费劲的工作，通过 flutter 往往简单很多。比如下图：
 
 ![](assets/challenge.gif)
 
@@ -49,7 +49,7 @@ flutter 自己控制渲染的特点，给它带来了很多革命性的优势 �
 
 ### flutter 跨平台的潜力无穷
 
-flutter 有着无与伦比的跨平台潜力。同样的，这得益于它自己控制屏幕的渲染。只要在组件层面使用得当，处理好 media query，flutter 很容易让你将移动端应用扩展到客户端，甚至 web。目前，flutter 已经能够很好地支持 osx 应用（master channel），而 windows/linux 应用目前是有限支持（technical preview）。此外，在 flutter beta channel 里，也有 web 支持。目前 flutter 是最有希望统一大前端的技术方案，我想，flutter 这一块也是有很大的野心的。
+flutter 有着无与伦比的跨平台潜力。同样的，这得益于它自己控制屏幕的渲染。只要在组件层面使用得当，处理好 media query，flutter 很容易让你将移动端应用扩展到客户端，甚至 web。目前，flutter 已经能够很好地支持 osx 应用（master channel），而 windows/linux 应用目前是有限支持（technical preview）。此外，在 flutter beta channel 里，也有 web 支持。目前 flutter 是最有希望统一大前端的技术方案，我想，flutter 在大前端这个方向有非常大的野心的。
 
 <!-- split -->
 
@@ -61,15 +61,15 @@ flutter 有着无与伦比的跨平台潜力。同样的，这得益于它自己
 
 在 android 上工作的同学应该会有这样的体验：早期的 android 版本如果不合理控制对象的分配，会导致时不时出现卡顿的情况，这是 GC 控制的内存分配的弊病：虽然省去了手工分配和释放内存的麻烦和不安全，定期的 GC 会影响应用的性能。虽然这种现象在较新的 android 上越来越少见，但仍然是个问题。对于 dart，android 工程师可能会有这样的疑问：dart 的 GC 能够承载大量的 UI 组件的复杂交互么？
 
-既然 flutter 敢于拍胸脯声称自己的渲染能力是 60fps，那一定是 dart 创建 object 和 GC 的开销足够低。对此我没有专门研究过，但从一些公开的博客上（比如 Flutter: don't fear the garbage collector），可以看到 dart 在创建 ojbect 和 GC 时都不需要加锁（mark 时需要加锁），它的 GC 是分代收集的（generation collection），吸取了 java GC 的很多经验教训（相信也吸取了同在 google 的 golang 的经验）。对于 flutter 的应用场景，大量的 object 生命周期都很短，适用于 young generational hypothesis，所以 GC 的效率足够高。
+既然 flutter 敢于拍胸脯声称自己的渲染能力是 60fps，那一定是 dart 创建 object 和 GC 的开销足够低。对此我没有专门研究过，但从一些公开的博客上（比如 Flutter: don't fear the garbage collector），可以看到 dart 在创建 object 和 GC 时都不需要加锁（mark 时需要加锁），它的 GC 是分代收集的（generation collection），吸取了 java GC 的很多经验教训（相信也吸取了同在 google 的 golang 的经验）。对于 flutter 的应用场景，大量的 object 生命周期都很短，适用于 young generational hypothesis，所以 GC 的效率足够高。
 
-以上说的都是性能上的取舍。一门编程语言的语法和编程范式往往影响到使用者的效率，从而影响语言的可接受度。dart 对于有 java / typescript 背景的程序员来说很容易理解，尤其是只考虑写 UI 的话，几分钟到几个小时就能上手，非常简单。而它的语法，相对于 java 来说，也很适合冗长的 UI 结构的声明。
+以上说的都是性能上的取舍。一门编程语言的语法和编程范式往往会影响到使用者的效率，从而影响语言的可接受度。dart 对于有 java/typescript 背景的程序员来说很容易理解，尤其是只考虑写 UI 的话，几分钟到几个小时就能上手，非常简单。而它的语法，相对于 java 来说，也很适合冗长的 UI 结构的声明。
 
 作为一门面向对象的语言，dart 支持 mixin，泛型等高阶功能。dart 采用了 async/await 的并发模型，每个 future 对象可以看做是一个独立的 coroutine。dart 虽然是静态类型，但它的类型模式和 TypeScript 很类似，类型声明虽然推荐但不强制。这几天使用下来，觉得 dart 做服务端开发似乎也不错，至少语言的表达能力要比 nodejs 背后的 javascript 强。当然，目前使用 dart 的程序员几乎都是 flutter 程序员，但不排除未来会有类似 javascript -> nodejs 这样的前端逆袭后端的事情发生。毕竟，后端程序员的能力不断地被云服务商压扁，一个后台工程师辛辛苦苦攒的服务端代码，分分钟被 firebase 这样的怪兽逆袭。
 
 ## 结论
 
-flutter 还是一门非常有意思，值得投入一些精力的框架。
+flutter 是一门非常有意思，值得投入一些精力的框架。如果你正在做大前端相关的事情，那么，不该错过 flutter；如果你在做后端开发，也可以了解一下 flutter，构建自己端到端的能力。
 
 ## 文献来源
 

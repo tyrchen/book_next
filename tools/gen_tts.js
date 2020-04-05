@@ -6,12 +6,12 @@ const fm = require('front-matter');
 const path = require('path')
 const audioconcat = require('audioconcat');
 
-const { tts: tts } = require('./tts');
+const { TTS } = require('./tts');
 const env = process.env;
 const app = env.APP || '1';
 const appId = env[`XF_TTS_ID${app}`];
-const appSecret = env[`XF_TTS_SECRET${app}`];
-const appKey = env[`XF_TTS_KEY${app}`];
+const apiSecret = env[`XF_TTS_SECRET${app}`];
+const apiKey = env[`XF_TTS_KEY${app}`];
 
 console.log(`Using app${app}: id ${appId}`);
 
@@ -19,9 +19,10 @@ async function gen_mp3(text, filename) {
   if (existsSync(filename)) return console.log('already exists: ', filename);
 
   text = text.replace(/”|「|」|"|_|《|》|>/g, '');
-  console.log(text);
+  // console.log(text);
   try {
-    await tts(appId, appKey, appSecret, text, filename, 'x2_pengfei');
+    const tts = new TTS(appId, apiKey, apiSecret, {vcn: 'x2_xiaoyuan', speed: 70});
+    await tts.generate(text, filename);
     console.log('generated: ', filename);
   } catch (error) {
     console.error(error);
@@ -72,9 +73,9 @@ async function main() {
       process.exit(-1);
     })
     .on('end', async function () {
-      // for (var f of files) {
-      //   await fs.unlink(f);
-      // }
+      for (var f of files) {
+        await fs.unlink(f);
+      }
       console.error('Audio created in:', output);
       process.exit(0);
     })

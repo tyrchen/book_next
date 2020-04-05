@@ -1,118 +1,91 @@
 const CryptoJS = require('crypto-js');
 const fs = require('fs');
 const WebSocketClient = require('websocket').client;
-const lame = require('lame');
 
-const tts = (app_id, api_key, apiSecret, text, fileName, vcn = 'xiaoyan') => {
-  const requestHost = 'tts-api.xfyun.cn';
-  const host = 'ws-api.xfyun.cn';
-  const url = '/v2/tts';
-  const date = new Date().toUTCString();
-  const signature_origin = `host: ${host}\ndate: ${date}\nGET ${url} HTTP/1.1`;
-  console.log(api_key, apiSecret);
-  const hash = CryptoJS.HmacSHA256(signature_origin, apiSecret);
-  const signature = CryptoJS.enc.Base64.stringify(hash);
-  console.log(signature_origin, signature);
-  const authorization_origin = `api_key="${
-      api_key}", algorithm="hmac-sha256", headers="host date request-line", signature="${
-      signature}"`;
-  const authorization = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Utf8.parse(authorization_origin));
-  // console.log(authorization_origin, authorization)
-  const wss = `wss://${requestHost}${url}?authorization=${authorization}&date=${
-      encodeURI(date)}&host=${host}`;
-  // 注意⚠️ 需要设置公网IP白名单
-  let fileInit = true;
-  const pcmFile = `${fileName}`;
-  const common = {app_id};
-  const business = {
-    aue: 'lame',
-    sfl: 1,
-    auf: 'audio/L16;rate=16000',
-    vcn,
-    speed: 65,
-    volume: 50,
-    // bgs: 1,//合成音频的背景音 0/1
-    tte: 'utf8'
-  };
-  const data = {
-    status: 2,
-    text: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text))
-  };
-  const params = JSON.stringify({common, business, data});
-  const client = new WebSocketClient();
-  return new Promise((resolve, reject) => {
-    client.on('connectFailed', function(error) {
-      console.log('Connect Error: ' + error.toString());
-      reject(error);
-    });
+class TTS {
+  constructor(appId, apiKey, apiSecret, opts = {} ) {
+    this.appId = appId;
+    this.apiKey = apiKey;
+    this.apiSecret = apiSecret;
+    this.vcn = opts.vcn || 'xiaoyan';
+    this.speed = opts.speed || 65;
+    this.volume = opts.volume || 60;
+  }
 
-    client.on('connect', function(connection) {
-      console.log('WebSocket client connected');
-      connection.send(params);
-      connection.on('error', function(error) {
-        console.log('Connection Error: ' + error.toString());
+  generate(text, filename) {
+    const common = { app_id: this.appId };
+    // see: https://www.xfyun.cn/doc/tts/online_tts/API.html
+    const business = {
+      aue: 'lame',
+      sfl: 1,
+      auf: 'audio/L16;rate=16000',
+      vcn: this.vcn,
+      speed: this.speed,
+      volume: this.volume,
+      tte: 'utf8'
+    };
+    console.log(business);
+    const data = {
+      status: 2,
+      text: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text))
+    };
+    const params = JSON.stringify({ common, business, data });
+    const client = new WebSocketClient();
+    return new Promise((resolve, reject) => {
+      client.on('connectFailed', function (error) {
+        console.log('Connect Failed: ' + error.toString());
         reject(error);
       });
-      connection.on('close', function() {
-        console.log('Connection Closed');
-        resolve({code: 0, msg: 'Connection Closed'});
-      });
-      connection.on('message', function(message) {
-        const res = JSON.parse(message.utf8Data);
-        if (res.code != 0) {
-          console.log(res.toString());
-          return resolve(res);
-        }
-        const {status, ced} = res.data;
-        // base64 => buffer
-        const buffer = new Buffer(res.data.audio, 'base64');
-        // 需要添加完成标志，否则会一直追加
-        fs.writeFile(pcmFile, buffer, {flag: fileInit ? 'w' : 'a'}, err => {
-          fileInit = res.data.status == 2;
-          if (err) {
-            throw err;
+
+      client.on('connect', function (connection) {
+        console.log('WebSocket client connected');
+        connection.send(params);
+        connection.on('error', function (error) {
+          console.log('Connection Error: ' + error.toString());
+          reject(error);
+        });
+        connection.on('close', function () {
+          console.log('Connection Closed');
+          // resolve({ code: 0, msg: 'Connection Closed' });
+        });
+        connection.on('message', async function (message) {
+          const res = JSON.parse(message.utf8Data);
+          if (res.code != 0) {
+            console.log(res.toString());
+            return resolve(res);
           }
-          console.log(status, ced, fileInit);
-          if (fileInit) {
-            resolve({code: 0, data: {status, pcmFile, fileName}});
-            // pcm2mp3(pcmFile, fileName);
+          const { status, ced, audio } = res.data;
+          const buffer = new Buffer(audio, 'base64');
+          process.stdout.write(`${ced} `);
+          fs.writeFileSync(filename, buffer, {flag: 'a'});
+          if (status == 2) {
+            return resolve({code: 0, data: {status, fileName: filename}});
           }
         });
       });
+      client.connect(this._getConnUrl());
     });
-    client.connect(wss);
-  });
-};
+  }
 
+  _getConnUrl() {
+    const requestHost = 'tts-api.xfyun.cn';
+    const host = 'ws-api.xfyun.cn';
+    const url = '/v2/tts';
+    const date = new Date().toUTCString();
+    const signatureOrigin = `host: ${host}\ndate: ${date}\nGET ${url} HTTP/1.1`;
+    console.log(this.apiKey, this.apiSecret);
+    const hash = CryptoJS.HmacSHA256(signatureOrigin, this.apiSecret);
+    const signature = CryptoJS.enc.Base64.stringify(hash);
+    console.log(signatureOrigin, signature);
+    const authorizationOrigin = `api_key="${
+      this.apiKey}", algorithm="hmac-sha256", headers="host date request-line", signature="${
+      signature}"`;
+    const authorization = CryptoJS.enc.Base64.stringify(
+      CryptoJS.enc.Utf8.parse(authorizationOrigin));
+    // console.log(authorization_origin, authorization)
+    return `wss://${requestHost}${url}?authorization=${authorization}&date=${
+      encodeURI(date)}&host=${host}`;
+  }
+}
 
-const pcm2mp3 = (pcmFile, fileName) => {
-  // create the Encoder instance
-  var encoder = new lame.Encoder({
-    // input
-    channels: 1,        // 2 channels (left and right)
-    bitDepth: 16,       // 16-bit samples
-    sampleRate: 16000,  // 44,100 Hz sample rate
-
-    // output
-    bitRate: 128,
-    outSampleRate: 16000,
-    mode: lame.STEREO  // STEREO (default), JOINTSTEREO, DUALCHANNEL or MONO
-  });
-
-  fs.createReadStream(pcmFile)
-      .pipe(encoder)
-      .pipe(fs.createWriteStream(fileName))
-      .on('close', function() {
-        console.error('done!');
-        fs.unlink(pcmFile, function(error) {
-          if (error) {
-            console.log(error);
-            return false;
-          }
-          console.log('删除文件成功');
-        });
-      });
-};
-
-module.exports = {tts};
+module.exports = { TTS };
