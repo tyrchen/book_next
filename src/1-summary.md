@@ -5,6 +5,7 @@ title: '目录'
 # 目录
 
 - [序言](0-intro-pub.html)
+- [目录](1-summary-pub.html)
 - [长日无痕（一）](2013/w38/1-no-title-pub.html)
 - [闲话说抽象](2014/w08/1-indirection-pub.html)
 - [谈敏捷](2014/w08/2-agile-pub.html)
@@ -164,4 +165,5 @@ title: '目录'
 - [致敬时间的价值：一品十年](2019/w52/1-2019-final-words-pub.html)
 - [暴走的程序员](2020/w03/1-angry-programmer-pub.html)
 - [新年快乐！](2020/w04/1-happy-new-year-pub.html)
+- [flutter: 一周感悟](2020/w14/1-flutter-pub.html)
 

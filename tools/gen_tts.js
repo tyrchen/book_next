@@ -37,6 +37,7 @@ async function extract(src) {
     .replace(/^\s*\*\s/gm, '')
     .replace(/!\[[^\]]*\]\([^\)]+\)/g, '')
     .replace(/(\d+)\s*/g, '$1')
+    .replace(/\[\d+\]/g, '')
     .replace(/```[^`]*```/g, '');
     
   console.log(data);
