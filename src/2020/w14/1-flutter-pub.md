@@ -5,6 +5,8 @@ cover: 'assets/flutter.jpg'
 keywords: [技术, 前端, flutter]
 ---
 
+# flutter: 一周感悟
+
 对于一个喜欢追求新技术的人来说，flutter 火爆了一年多我却没有尝鲜，实在是说不过去。我之所以对 flutter 不感冒，源于我对 flutter 所使用的 dart 语言的无知 —— 我觉得既然市面上有 typescript 这样可以满足 flutter 需要的语言，为何要用 dart 这样一个行将就木的语言呢？但最近有个朋友给我展示了他用 flutter 做的一个私人项目，惊艳到我，于是我开始学 flutter。
 
 我学 flutter 的历程和其它语言有些不同 —— 比如学 rust，我直接边看官方文档边写代码，整个过程非常顺畅；而学 flutter，可能是我没有什么移动端开发经验的缘故吧，我读官方文档总有种「从入门到放弃」的感觉，于是我便找了一些视频课程来看。
@@ -50,8 +52,6 @@ flutter 自己控制渲染的特点，给它带来了很多革命性的优势 �
 ### flutter 跨平台的潜力无穷
 
 flutter 有着无与伦比的跨平台潜力。同样的，这得益于它自己控制屏幕的渲染。只要在组件层面使用得当，处理好 media query，flutter 很容易让你将移动端应用扩展到客户端，甚至 web。目前，flutter 已经能够很好地支持 osx 应用（master channel），而 windows/linux 应用目前是有限支持（technical preview）。此外，在 flutter beta channel 里，也有 web 支持。目前 flutter 是最有希望统一大前端的技术方案，我想，flutter 在大前端这个方向有非常大的野心的。
-
-<!-- split -->
 
 ## 为什么 flutter 使用 dart？
 
