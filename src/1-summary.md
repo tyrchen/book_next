@@ -166,4 +166,6 @@ title: '目录'
 - [新年快乐！](2020/w04/1-happy-new-year-pub.html)
 - [flutter: 一周感悟](2020/w14/1-flutter-pub.html)
 - [dart：失之东隅收之桑榆](2020/w15/1-dart-pub.html)
+- [为什么有的语言「不能」编译成 WebAssembly？](2020/w15/2-webassembly-pub.html)
+- [2020 活久见：欧美主流 app「熔断」了](2020/w19/1-facebook-sdk-pub.html)
 
