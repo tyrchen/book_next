@@ -1,7 +1,7 @@
 ---
 title: '2020 活久见：欧美主流 app「熔断」了'
 authors: [程序君]
-cover: 'assets/kotlin.jpg'
+cover: 'assets/tide.jpg'
 keywords: [技术, sdk]
 ---
 
