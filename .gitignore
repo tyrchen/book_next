@@ -5,3 +5,4 @@ _book
 node_modules
 output
 src/1-summary-pub.md
+.DS_Store
